@@ -2,7 +2,7 @@ name: CI Frontend
 
 on:
   pull_request:
-    branches: [ "main" ]
+    branches: [ "main", "develop" ]
 
 jobs:
   build_and_test:
@@ -13,7 +13,7 @@ jobs:
       - name: Usar Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '18.x'
+          node-version: '24.x'
           cache: 'npm'
 
       - name: Instalar dependências
