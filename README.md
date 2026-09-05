@@ -1,3 +1,19 @@
+# React + Vite
+
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+
+Currently, two official plugins are available:
+
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+
+## React Compiler
+
+The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+
+## Expanding the ESLint configuration
+
+If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
 # Documentação de Projeto e Arquitetura de Software
 
 [![Status: Em Desenvolvimento](https://img.shields.io/badge/Status-Em_Desenvolvimento-blue)](#)
@@ -23,6 +39,12 @@ O ciclo de vida do código é protegido por automações de integração e entre
 - Integração Contínua (CI): Pipelines configurados via GitHub Actions para validação de linter e execução de testes a cada Pull Request aberto.
 - Entrega Contínua (CD): Deploy automatizado no ambiente de produção hospedado na Vercel após aprovação e merge na branch principal.
 
+## Estrutura do Projeto (Clean Architecture e Testes)
+A arquitetura baseia-se na inversão de dependências e na co-localização de testes (arquivos `.spec.js/jsx` mantidos na mesma pasta dos arquivos que validam), garantindo componentes auto-contidos:
+- `/domain`: Entidades de domínio e contratos (interfaces). Ponto ideal para testes unitários de lógica pura.
+- `/data`: Implementação de repositórios (ex: `githubService.js`) e mapeamento de dados externos.
+- `/presentation`: Componentes React (UI) e páginas. Os testes nesta camada utilizam React Testing Library focando em comportamento (renderização, interações do usuário e estados de loading).
+
 ## Gestão Ágil e Ciclo de Vida
 O gerenciamento das entregas segue o framework Agile, com planejamento Just-in-Time orientado a fluxo de valor:
 - Rastreabilidade: Uso do GitHub Projects (Kanban) integrado a Issues formatadas como User Stories.
@@ -39,4 +61,4 @@ Para espelhar o ambiente de desenvolvimento e executar a aplicação, siga as di
 
 1. Clone o repositório:
 ```bash
-git clone https://github.com/marcio-sgomes/portfolio-marcio-gomes.git
+git clone [https://github.com/marcio-sgomes/portfolio-marcio-gomes.git](https://github.com/marcio-sgomes/portfolio-marcio-gomes.git)

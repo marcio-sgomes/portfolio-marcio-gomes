@@ -1,0 +1,29 @@
+name: CI Frontend
+
+on:
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build_and_test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Usar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18.x'
+          cache: 'npm'
+
+      - name: Instalar dependências
+        run: npm ci
+
+      - name: Verificar lint
+        run: npm run lint
+
+      - name: Rodar testes unitários
+        run: npm run test
+
+      - name: Build do projeto
+        run: npm run build
