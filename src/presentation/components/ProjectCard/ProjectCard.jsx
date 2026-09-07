@@ -1,6 +1,6 @@
-import styles from './CardProjeto.module.css';
+import styles from './ProjectCard.module.css';
 
-export function CardProjeto({ projeto }) {
+export function ProjectCard({ projeto }) {
   return (
     <article className={styles.card}>
       <h3 className={styles.titulo}>{projeto.nome}</h3>
