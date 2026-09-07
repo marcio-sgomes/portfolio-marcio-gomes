@@ -1,0 +1,60 @@
+.card {
+  border: 1px solid #eaeaea;
+  border-radius: 8px;
+  padding: 24px;
+  background-color: #ffffff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+.titulo {
+  margin: 0 0 12px 0;
+  font-size: 1.25rem;
+  color: #333333;
+}
+
+.descricao {
+  color: #666666;
+  margin-bottom: 20px;
+  line-height: 1.6;
+  flex-grow: 1; /* Empurra o botão e as tags para o final do card */
+}
+
+.tecnologias {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.tag {
+  background-color: #f0f4f8;
+  color: #007bff;
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.link {
+  display: inline-block;
+  text-decoration: none;
+  color: #ffffff;
+  background-color: #007bff;
+  padding: 10px 16px;
+  border-radius: 6px;
+  font-weight: 500;
+  text-align: center;
+  transition: background-color 0.2s;
+}
+
+.link:hover {
+  background-color: #0056b3;
+}
