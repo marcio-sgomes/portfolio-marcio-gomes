@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
-import { obterProjetos } from '../../data/services/githubService';
-import { ProjectCard } from '../components/ProjectCard/ProjectCard';
+import { obterProjetos } from '../../../data/services/githubService';
+import { ProjectCard } from '../../components/ProjectCard/ProjectCard';
 
 export function Home() {
   const [projetos, setProjetos] = useState([]);
