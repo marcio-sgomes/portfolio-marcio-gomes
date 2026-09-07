@@ -1,0 +1,16 @@
+/* src/style/variables.css */
+:root {
+  /* Tokens de Cores */
+  --cor-primaria: #007bff;
+  --cor-primaria-hover: #0056b3;
+  --cor-fundo: #f8f9fa;
+  --cor-fundo-card: #ffffff;
+  --cor-texto-principal: #333333;
+  --cor-texto-secundario: #666666;
+  --cor-borda: #eaeaea;
+  --cor-fundo-tag: #e0f0ff;
+  
+  /* Tokens de Espaçamento e Tipografia */
+  --espacamento-padrao: 24px;
+  --fonte-principal: 'Inter', system-ui, sans-serif;
+}
