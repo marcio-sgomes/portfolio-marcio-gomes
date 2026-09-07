@@ -1,0 +1,13 @@
+/* src/style/global.css */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--cor-fundo);
+  color: var(--cor-texto-principal);
+  font-family: var(--fonte-principal);
+  line-height: 1.6;
+}
