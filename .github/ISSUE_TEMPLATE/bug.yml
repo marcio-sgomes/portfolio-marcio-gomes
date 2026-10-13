@@ -1,0 +1,48 @@
+name: 🐞 Bug
+description: Relate um comportamento incorreto no portfólio
+title: "fix: "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: Obrigado por relatar! Descreva o problema com o máximo de detalhes possível.
+  - type: textarea
+    id: descricao
+    attributes:
+      label: O que aconteceu?
+      description: Descreva o comportamento incorreto.
+    validations:
+      required: true
+  - type: textarea
+    id: passos
+    attributes:
+      label: Passos para reproduzir
+      placeholder: |
+        1. Acesse a página '...'
+        2. Clique em '...'
+        3. Veja o erro
+    validations:
+      required: true
+  - type: textarea
+    id: esperado
+    attributes:
+      label: Comportamento esperado
+    validations:
+      required: true
+  - type: textarea
+    id: user-story
+    attributes:
+      label: User Story impactada
+      placeholder: Como visitante, quero ..., para ...
+  - type: textarea
+    id: criterios
+    attributes:
+      label: Critérios de Aceitação da correção
+      placeholder: |
+        - [ ] O erro não ocorre mais seguindo os passos acima
+        - [ ] Existe teste cobrindo o cenário
+  - type: input
+    id: ambiente
+    attributes:
+      label: Ambiente
+      placeholder: "Ex.: Chrome 129 / Windows 11 / produção (Vercel)"

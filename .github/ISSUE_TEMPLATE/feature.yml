@@ -1,0 +1,38 @@
+name: ✨ Funcionalidade
+description: Proponha uma nova funcionalidade ou melhoria
+title: "feat: "
+labels: ["feat"]
+body:
+  - type: textarea
+    id: user-story
+    attributes:
+      label: User Story
+      description: Quem precisa, o quê e por quê.
+      placeholder: Como recrutador, quero ver os projetos em destaque, para avaliar rapidamente o trabalho do Márcio.
+    validations:
+      required: true
+  - type: textarea
+    id: contexto
+    attributes:
+      label: Contexto / Objetivo
+      description: Qual problema esta funcionalidade resolve?
+  - type: textarea
+    id: criterios
+    attributes:
+      label: Critérios de Aceitação
+      placeholder: |
+        - [ ] Critério 1
+        - [ ] Critério 2
+        - [ ] Testes unitários cobrindo o comportamento
+    validations:
+      required: true
+  - type: dropdown
+    id: camada
+    attributes:
+      label: Camada afetada (Clean Architecture)
+      multiple: true
+      options:
+        - domain
+        - data
+        - presentation
+        - infraestrutura / CI

@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 🌐 Portfólio em produção
+    url: https://portfolio-marcio-gomes.vercel.app
+    about: Veja a versão publicada antes de abrir uma issue.
