@@ -1,64 +1,148 @@
-# React + Vite
+# Portfólio — Márcio Gomes
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Portfólio profissional em React que lista automaticamente meus projetos públicos direto da API do GitHub, construído com Clean Architecture, testes e CI/CD.
 
-Currently, two official plugins are available:
+[![Status: Ativo](https://img.shields.io/badge/status-ativo-brightgreen)](#status-do-projeto)
+[![Stack: React + Vite](https://img.shields.io/badge/stack-React_%7C_Vite-61dafb)](#tecnologias)
+[![Testes: Vitest](https://img.shields.io/badge/testes-Vitest_%7C_RTL-yellow)](#scripts-disponíveis)
+[![Deploy: Vercel](https://img.shields.io/badge/deploy-Vercel-black)](https://portfolio-marcio-gomes.vercel.app)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+🌐 **Em produção:** <https://portfolio-marcio-gomes.vercel.app>
 
-## React Compiler
+📚 **Documentação de produto (PRD, roadmap):** [marcio-sgomes/portfolio-tech](https://github.com/marcio-sgomes/portfolio-tech)
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## Sobre
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
-# Documentação de Projeto e Arquitetura de Software
+Currículos estáticos não mostram *como* um desenvolvedor trabalha. Este projeto é um **meta-portfólio**: além de exibir os projetos, a própria construção dele (arquitetura em camadas, testes, issues como User Stories, pipeline de CI e deploy contínuo) serve como evidência técnica.
 
-[![Status: Em Desenvolvimento](https://img.shields.io/badge/Status-Em_Desenvolvimento-blue)](#)
-[![Stack: React + Vite](https://img.shields.io/badge/Stack-React_%7C_Vite_%7C_JS-yellow)](#)
-[![Arquitetura: Clean & SOLID](https://img.shields.io/badge/Arquitetura-Clean_Architecture_%7C_SOLID-success)](#)
-[![Testes: Vitest](https://img.shields.io/badge/Testes-Vitest_%7C_RTL-brightgreen)](#)
-[![Deploy: Vercel](https://img.shields.io/badge/Deploy-Vercel-black)](#)
+**Público:** recrutadores técnicos, tech leads, gestores de TI e clientes de consultoria.
 
-## Escopo e Ideação do Produto
-Este repositório contém o código-fonte e a governança técnica de uma aplicação web focada em alta performance e escalabilidade. O objetivo central do produto é exibir um perfil profissional de forma dinâmica, integrando e apresentando projetos e códigos consumidos diretamente da API do GitHub.
+O que a aplicação faz hoje:
 
-A concepção do projeto foi guiada por práticas de Product Discovery, garantindo que a engenharia de software aplicada atenda diretamente aos requisitos de negócios, com foco em manutenibilidade e entrega contínua de valor.
+- **Início (`/`)** — busca os repositórios públicos de `marcio-sgomes` na API do GitHub (ordenados pelos mais recentes, ignorando forks) e mostra cada um como um card com nome, descrição, tópicos e link. Exibe estados de carregamento e de erro.
+- **Sobre (`/sobre`)** — explica a visão geral do projeto e a stack escolhida.
+- **404** — qualquer rota desconhecida mostra "Página não encontrada".
 
-## Governança Técnica e Arquitetura
-A base de código foi estruturada visando o isolamento de responsabilidades e a facilidade de testes, adotando:
-- Padrão Arquitetural: Clean Architecture, garantindo a separação entre regras de negócio (Domain), manipulação de dados (Data) e interface gráfica (Presentation).
-- Princípios de Engenharia: Aplicação estrita de SOLID (com destaque para Inversão de Dependência e Responsabilidade Única).
-- Core Tecnológico: React e JavaScript (ES6+), utilizando Vite como bundler para otimização de tempo de build e execução.
+> 💡 Os cards usam a **descrição** e os **tópicos** de cada repositório no GitHub. Para um card ficar bonito, basta preencher esses campos no próprio repositório.
 
-## Esteira de Desenvolvimento e Qualidade (CI/CD)
-O ciclo de vida do código é protegido por automações de integração e entrega contínua:
-- Testes Automatizados: Cobertura de regras de negócio e componentes visuais utilizando Vitest e React Testing Library.
-- Integração Contínua (CI): Pipelines configurados via GitHub Actions para validação de linter e execução de testes a cada Pull Request aberto.
-- Entrega Contínua (CD): Deploy automatizado no ambiente de produção hospedado na Vercel após aprovação e merge na branch principal.
+## Status do projeto
 
-## Estrutura do Projeto (Clean Architecture e Testes)
-A arquitetura baseia-se na inversão de dependências e na co-localização de testes (arquivos `.spec.js/jsx` mantidos na mesma pasta dos arquivos que validam), garantindo componentes auto-contidos:
-- `/domain`: Entidades de domínio e contratos (interfaces). Ponto ideal para testes unitários de lógica pura.
-- `/data`: Implementação de repositórios (ex: `githubService.js`) e mapeamento de dados externos.
-- `/presentation`: Componentes React (UI) e páginas. Os testes nesta camada utilizam React Testing Library focando em comportamento (renderização, interações do usuário e estados de loading).
+**Ativo** — as 3 sprints planejadas (Fundação, Integração/Design e Qualidade/Entrega) foram concluídas e o site está publicado na Vercel.
 
-## Gestão Ágil e Ciclo de Vida
-O gerenciamento das entregas segue o framework Agile, com planejamento Just-in-Time orientado a fluxo de valor:
-- Rastreabilidade: Uso do GitHub Projects (Kanban) integrado a Issues formatadas como User Stories.
-- Controle de Versão: Adoção do GitHub Flow, com branches semânticas (feat/, fix/, chore/) e bloqueio de commits diretos na branch principal.
+| A Fazer | Fazendo | Feito |
+|---|---|---|
+| Seções previstas no PRD: Hero com CV/contato, Formação, Cases (ex.: Bela Brisa) | — | Setup do Vite e Design Tokens (#1) |
+| Remover código não usado (`Projetos.jsx` vazio, `mockProjetoService.js`) | — | Camada de domínio e serviço mock (#2) |
+| Ajustar `index.html` (idioma `pt-BR`, título e meta description) | — | React Router e componentes base (#3) |
+| Mover estilos inline da Home para CSS Module | — | Listagem de projetos (#4) e integração com a API do GitHub (#5) |
+| | | CSS Modules e estilização global (#6), página Sobre (#7) |
+| | | Testes unitários com Vitest (#8), pipeline de CI (#9), deploy na Vercel (#10) |
 
-### Mapa de Sprints (Roadmap)
-- Sprint 1 (Fundação e Arquitetura): Setup do Vite, Clean Architecture, roteamento e componentização base.
-- Sprint 2 (Integração e Design): Conexão com APIs externas (Inversão de Dependência), estilização global e responsividade.
-- Sprint 3 (Qualidade e Entrega): Implementação de testes unitários isolados, configuração da esteira CI/CD e deploy automatizado.
+O planejamento é feito no GitHub Projects (quadro `portfolio-marcio-gomes`) e nas [issues](https://github.com/marcio-sgomes/portfolio-marcio-gomes/issues).
 
-## Configuração do Ambiente Local
+## Tecnologias
 
-Para espelhar o ambiente de desenvolvimento e executar a aplicação, siga as diretrizes abaixo:
+- **React 19** — componentização da interface e controle de estado com hooks.
+- **Vite 8** — servidor de desenvolvimento instantâneo e build otimizado.
+- **React Router DOM 7** — navegação entre páginas sem recarregar (SPA).
+- **CSS Modules + variáveis CSS (Design Tokens)** — estilos isolados por componente e paleta centralizada.
+- **API REST do GitHub** — fonte dos projetos exibidos, sempre atualizada sem editar código.
+- **Vitest + React Testing Library + jsdom** — testes unitários que validam o comportamento visto pelo usuário.
+- **ESLint** — padronização e detecção de erros no código.
+- **GitHub Actions** — CI que roda lint, testes e build em cada PR e push na `main`.
+- **Vercel** — hospedagem com deploy automático e *preview* por Pull Request (`vercel.json` reescreve rotas para a SPA).
+
+## Como rodar
+
+### Pré-requisitos
+
+- [Node.js](https://nodejs.org/) **20 ou superior** (o CI usa Node 24). Confira com `node -v`.
+- [Git](https://git-scm.com/).
+- Conexão com a internet (a página inicial consulta a API do GitHub).
+
+### Passo a passo
 
 1. Clone o repositório:
-```bash
-git clone [https://github.com/marcio-sgomes/portfolio-marcio-gomes.git](https://github.com/marcio-sgomes/portfolio-marcio-gomes.git)
+   ```bash
+   git clone https://github.com/marcio-sgomes/portfolio-marcio-gomes.git
+   ```
+2. Entre na pasta:
+   ```bash
+   cd portfolio-marcio-gomes
+   ```
+3. Instale as dependências (usa as versões exatas do `package-lock.json`):
+   ```bash
+   npm ci
+   ```
+4. Suba o servidor de desenvolvimento:
+   ```bash
+   npm run dev
+   ```
+
+**Resultado esperado:** o navegador abre sozinho em `http://localhost:5173` mostrando "Conectando ao GitHub..." e, em seguida, os cards com os repositórios.
+
+### Erros comuns
+
+| Sintoma | Causa provável | Como corrigir |
+|---|---|---|
+| `'vite' não é reconhecido como um comando` | Dependências não instaladas | Rode `npm ci` antes de `npm run dev`. |
+| `npm ci` reclama do lockfile | `package.json` e `package-lock.json` fora de sincronia | Rode `npm install` e versione o lock atualizado. |
+| "Não foi possível carregar os projetos do GitHub no momento." | Sem internet ou limite da API do GitHub atingido (60 req/hora por IP sem autenticação) | Verifique a conexão ou aguarde alguns minutos. |
+| Porta 5173 ocupada | Outro servidor Vite rodando | Feche o outro processo; o Vite também tenta a próxima porta livre. |
+| Testes falham por *timeout* em máquina lenta | Criação do ambiente jsdom demorando mais que 5 s | Rode de novo com `npx vitest run --testTimeout=20000`. |
+
+## Scripts disponíveis
+
+| Comando | O que faz |
+|---|---|
+| `npm run dev` | Servidor de desenvolvimento com recarregamento automático. |
+| `npm run build` | Gera o build de produção em `dist/`. |
+| `npm run preview` | Serve localmente o conteúdo de `dist/` para conferência. |
+| `npm run lint` | Analisa o código com ESLint. |
+| `npm run test` | Executa os testes uma vez (Vitest). |
+| `npm run test:ui` | Abre a interface visual do Vitest. |
+| `npm run test:coverage` | Testes com relatório de cobertura em `coverage/` (mínimo exigido: **97%**). |
+
+## Estrutura de pastas
+
+```text
+src/
+├── domain/           # Regras de negócio puras
+│   └── models/       #   Entidade Projeto (contrato usado pelas outras camadas)
+├── data/             # Acesso a dados externos
+│   └── services/     #   githubService (API do GitHub) e mock para desenvolvimento
+├── presentation/     # Tudo o que é React
+│   ├── components/   #   Header e ProjectCard (com CSS Module e teste ao lado)
+│   └── pages/        #   Home e About
+├── styles/           # global.css e variables.css (Design Tokens)
+├── test/             # setupTests.js (jest-dom)
+├── App.jsx           # Rotas da aplicação
+└── main.jsx          # Ponto de entrada
+.github/              # Workflow de CI, templates de issue e de PR
+vercel.json           # Reescrita de rotas para a SPA na Vercel
+```
+
+Os testes ficam **ao lado** do arquivo que validam (`*.spec.js` / `*.spec.jsx`).
+
+## Arquitetura
+
+- **Clean Architecture:** `presentation` depende de `data`, que depende de `domain`; o domínio não conhece React nem a API.
+- **SOLID:** cada componente tem uma única responsabilidade e o serviço de dados converte a resposta da API para a entidade `Projeto`, isolando a UI de mudanças externas.
+
+## Gestão do projeto
+
+O desenvolvimento foi organizado em três sprints (milestones):
+
+1. **Sprint 1 — Fundação e Arquitetura:** setup do Vite, camadas, roteamento e componentes base.
+2. **Sprint 2 — Integração e Design:** integração com a API do GitHub, estilização global e responsividade.
+3. **Sprint 3 — Qualidade e Entrega:** testes unitários, pipeline de CI e deploy contínuo.
+
+## Como contribuir
+
+Veja o [CONTRIBUTING.md](CONTRIBUTING.md): branches por issue (`feat/issue-N-...`), Conventional Commits em pt-BR e checklist de PR.
+
+---
+
+Feito por **Márcio dos Santos Gomes** — [GitHub](https://github.com/marcio-sgomes)
