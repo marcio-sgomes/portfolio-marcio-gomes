@@ -21,11 +21,17 @@ Currículos estáticos não mostram *como* um desenvolvedor trabalha. Este proje
 
 O que a aplicação faz hoje:
 
-- **Início (`/`)** — busca os repositórios públicos de `marcio-sgomes` na API do GitHub (ordenados pelos mais recentes, ignorando forks) e mostra cada um como um card com nome, descrição, tópicos e link. Exibe estados de carregamento e de erro.
-- **Sobre (`/sobre`)** — explica a visão geral do projeto e a stack escolhida.
+- **Início (`/`)** — página única no estilo portfólio executivo, com navegação por âncoras:
+  - **Hero:** foto, nome, proposta de valor, 4 características principais e atalhos para LinkedIn, GitHub e e-mail.
+  - **Perfil, Competências, Formação, Cases e Método:** trajetória, áreas de atuação, formação (Estácio e Faveni), case Bela Brisa e forma de conduzir projetos.
+  - **Projetos:** busca os repositórios públicos de `marcio-sgomes` na API do GitHub (mais recentes primeiro, ignorando forks), com estados de carregamento e de erro.
+  - **Contato:** cartões de LinkedIn, GitHub e e-mail.
+- **Sobre (`/sobre`)** — explica a visão geral do projeto e a stack escolhida (link no rodapé).
 - **404** — qualquer rota desconhecida mostra "Página não encontrada".
 
 > 💡 Os cards usam a **descrição** e os **tópicos** de cada repositório no GitHub. Para um card ficar bonito, basta preencher esses campos no próprio repositório.
+
+> ✏️ Todos os textos, links de contato e o caminho da foto ficam em [`src/data/perfil.js`](src/data/perfil.js). A foto é servida de `public/foto-perfil.jpg` (se faltar, o Hero mostra o monograma "MG").
 
 ## Status do projeto
 
@@ -33,12 +39,14 @@ O que a aplicação faz hoje:
 
 | A Fazer | Fazendo | Feito |
 |---|---|---|
-| Seções previstas no PRD: Hero com CV/contato, Formação, Cases (ex.: Bela Brisa) | — | Setup do Vite e Design Tokens (#1) |
-| Remover código não usado (`Projetos.jsx` vazio, `mockProjetoService.js`) | — | Camada de domínio e serviço mock (#2) |
-| Ajustar `index.html` (idioma `pt-BR`, título e meta description) | — | React Router e componentes base (#3) |
-| Mover estilos inline da Home para CSS Module | — | Listagem de projetos (#4) e integração com a API do GitHub (#5) |
+| Botão "Baixar CV" no Hero (#24) | — | Setup do Vite e Design Tokens (#1) |
+| Proteger a `main` e configurar o Prettier (#27) | — | Camada de domínio e serviço mock (#2) |
+| | | React Router e componentes base (#3) |
+| | | Listagem de projetos (#4) e integração com a API do GitHub (#5) |
 | | | CSS Modules e estilização global (#6), página Sobre (#7) |
 | | | Testes unitários com Vitest (#8), pipeline de CI (#9), deploy na Vercel (#10) |
+| | | Redesign executivo: Hero com foto, Perfil, Competências, Formação, Cases, Método, Contato e Footer (#24) |
+| | | Remoção de código não usado e estilos inline (#25), SEO e favicon próprio (#26) |
 
 O planejamento é feito no GitHub Projects (quadro `portfolio-marcio-gomes`) e nas [issues](https://github.com/marcio-sgomes/portfolio-marcio-gomes/issues).
 
@@ -111,10 +119,11 @@ O planejamento é feito no GitHub Projects (quadro `portfolio-marcio-gomes`) e n
 src/
 ├── domain/           # Regras de negócio puras
 │   └── models/       #   Entidade Projeto (contrato usado pelas outras camadas)
-├── data/             # Acesso a dados externos
-│   └── services/     #   githubService (API do GitHub) e mock para desenvolvimento
+├── data/             # Acesso a dados
+│   ├── perfil.js     #   Conteúdo do portfólio (textos, formação, cases, contatos)
+│   └── services/     #   githubService (API do GitHub)
 ├── presentation/     # Tudo o que é React
-│   ├── components/   #   Header e ProjectCard (com CSS Module e teste ao lado)
+│   ├── components/   #   Header, Hero, Secao, Secoes/*, ProjectCard, Footer, Icone, RolarParaAncora
 │   └── pages/        #   Home e About
 ├── styles/           # global.css e variables.css (Design Tokens)
 ├── test/             # setupTests.js (jest-dom)

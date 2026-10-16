@@ -1,0 +1,377 @@
+/* Perfil */
+.perfil {
+  display: grid;
+  grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+  gap: clamp(32px, 6vw, 80px);
+  align-items: start;
+}
+
+.perfilTexto p {
+  color: var(--cor-texto-secundario);
+  font-size: 1.08rem;
+  line-height: 1.8;
+}
+
+.perfilTexto p + p {
+  margin-top: 20px;
+}
+
+.perfilTexto p:first-child {
+  color: var(--cor-texto-principal);
+  font-size: 1.2rem;
+}
+
+.citacao {
+  position: relative;
+  padding: 40px 32px 32px;
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio);
+  background-color: var(--cor-fundo-card);
+}
+
+.citacao::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 32px;
+  width: 48px;
+  height: 2px;
+  background-color: var(--cor-primaria);
+}
+
+.citacao p {
+  font-family: var(--fonte-titulo);
+  font-style: italic;
+  font-size: 1.45rem;
+  line-height: 1.45;
+}
+
+.citacao footer {
+  margin-top: 20px;
+  color: var(--cor-primaria);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.destaques {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-top: clamp(48px, 7vw, 80px);
+  border-top: 1px solid var(--cor-borda);
+}
+
+.destaque {
+  padding: 32px 24px 0 0;
+}
+
+.destaque + .destaque {
+  padding-left: 24px;
+  border-left: 1px solid var(--cor-borda);
+}
+
+.destaqueValor {
+  font-family: var(--fonte-titulo);
+  font-size: clamp(2.4rem, 5vw, 3.4rem);
+  line-height: 1;
+  color: var(--cor-primaria);
+}
+
+.destaqueRotulo {
+  margin-top: 12px;
+  color: var(--cor-texto-secundario);
+  font-size: 0.95rem;
+}
+
+/* Competências */
+.competencias {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.competencia {
+  padding: 36px 32px;
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio);
+  background-color: var(--cor-fundo-card);
+  transition: border-color 0.25s ease, transform 0.25s ease;
+}
+
+.competencia:hover {
+  border-color: rgba(201, 164, 92, 0.5);
+  transform: translateY(-4px);
+}
+
+.competenciaIndice {
+  font-family: var(--fonte-titulo);
+  color: var(--cor-primaria);
+  font-size: 1.1rem;
+}
+
+.competenciaTitulo {
+  margin-top: 20px;
+  font-family: var(--fonte-titulo);
+  font-size: 1.6rem;
+  font-weight: 500;
+}
+
+.competenciaResumo {
+  margin-top: 8px;
+  color: var(--cor-texto-secundario);
+}
+
+.competenciaItens {
+  list-style: none;
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid var(--cor-borda);
+}
+
+.competenciaItens li {
+  position: relative;
+  padding: 7px 0 7px 22px;
+  font-size: 0.95rem;
+}
+
+.competenciaItens li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 10px;
+  height: 1px;
+  background-color: var(--cor-primaria);
+}
+
+/* Formação */
+.formacao {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.formacaoItem {
+  padding: 36px 32px;
+  border-left: 2px solid var(--cor-primaria);
+  background: linear-gradient(90deg, var(--cor-fundo-tag), transparent 70%);
+  border-radius: 0 var(--raio) var(--raio) 0;
+}
+
+.formacaoNivel {
+  color: var(--cor-primaria);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.formacaoCurso {
+  margin-top: 12px;
+  font-family: var(--fonte-titulo);
+  font-size: 1.6rem;
+  font-weight: 500;
+  line-height: 1.25;
+}
+
+.formacaoInstituicao {
+  margin-top: 4px;
+  font-weight: 600;
+}
+
+.formacaoTexto {
+  margin-top: 12px;
+  color: var(--cor-texto-secundario);
+  font-size: 0.95rem;
+}
+
+/* Cases */
+.cases {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.case {
+  display: flex;
+  flex-direction: column;
+  padding: 40px 36px;
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio);
+  background-color: var(--cor-fundo-card);
+}
+
+.caseTipo {
+  align-self: flex-start;
+  padding: 4px 12px;
+  border-radius: 999px;
+  background-color: var(--cor-fundo-tag);
+  color: var(--cor-primaria);
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+
+.caseCliente {
+  margin-top: 20px;
+  font-family: var(--fonte-titulo);
+  font-size: 1.75rem;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.caseResumo {
+  margin-top: 12px;
+  color: var(--cor-texto-secundario);
+}
+
+.caseLink {
+  margin-top: 24px;
+  color: var(--cor-primaria);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.caseLink:hover {
+  text-decoration: underline;
+}
+
+/* Método */
+.etapas {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 32px;
+  counter-reset: etapa;
+}
+
+.etapa {
+  padding-top: 28px;
+  border-top: 1px solid var(--cor-borda-forte);
+  position: relative;
+}
+
+.etapa::before {
+  content: '';
+  position: absolute;
+  top: -5px;
+  left: 0;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background-color: var(--cor-primaria);
+  box-shadow: 0 0 0 6px var(--cor-fundo);
+}
+
+.etapaNumero {
+  font-family: var(--fonte-titulo);
+  font-size: 2.6rem;
+  line-height: 1;
+  color: var(--cor-borda-forte);
+}
+
+.etapaTitulo {
+  margin-top: 16px;
+  font-size: 1.15rem;
+  font-weight: 600;
+}
+
+.etapaTexto {
+  margin-top: 8px;
+  color: var(--cor-texto-secundario);
+  font-size: 0.95rem;
+}
+
+/* Contato */
+.contatos {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.contato {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  height: 100%;
+  padding: 32px;
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio);
+  background-color: var(--cor-fundo-card);
+  color: var(--cor-texto-principal);
+  text-decoration: none;
+  transition: border-color 0.25s ease, transform 0.25s ease;
+}
+
+.contato:hover {
+  border-color: var(--cor-primaria);
+  transform: translateY(-4px);
+}
+
+.contatoIcone {
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  margin-bottom: 16px;
+  border-radius: 50%;
+  background-color: var(--cor-fundo-tag);
+  color: var(--cor-primaria);
+}
+
+.contatoRotulo {
+  color: var(--cor-texto-suave);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.contatoValor {
+  font-size: 1.1rem;
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
+
+.contatoChamada {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: auto;
+  padding-top: 16px;
+  color: var(--cor-primaria);
+  font-size: 0.92rem;
+}
+
+@media (max-width: 960px) {
+  .perfil,
+  .competencias,
+  .formacao,
+  .cases,
+  .contatos {
+    grid-template-columns: 1fr;
+  }
+
+  .etapas {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .destaques {
+    grid-template-columns: 1fr;
+  }
+
+  .destaque,
+  .destaque + .destaque {
+    padding: 24px 0;
+    border-left: 0;
+    border-bottom: 1px solid var(--cor-borda);
+  }
+
+  .etapas {
+    grid-template-columns: 1fr;
+  }
+}

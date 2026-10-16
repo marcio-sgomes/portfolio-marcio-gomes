@@ -1,0 +1,29 @@
+.grade {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr));
+  gap: 24px;
+}
+
+.status {
+  color: var(--cor-texto-secundario);
+  font-size: 1.1rem;
+}
+
+.erro {
+  color: var(--cor-erro);
+  font-weight: 600;
+}
+
+.verTodos {
+  display: inline-block;
+  margin-top: 40px;
+  color: var(--cor-primaria);
+  font-weight: 600;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s ease;
+}
+
+.verTodos:hover {
+  border-color: var(--cor-primaria);
+}

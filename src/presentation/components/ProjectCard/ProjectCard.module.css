@@ -1,29 +1,31 @@
 .card {
-  border: 1px solid #eaeaea;
-  border-radius: 8px;
-  padding: 24px;
-  background-color: #ffffff;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
   display: flex;
   flex-direction: column;
+  padding: 32px;
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio);
+  background-color: var(--cor-fundo-card);
+  transition: transform 0.25s ease, border-color 0.25s ease;
 }
 
 .card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  border-color: rgba(201, 164, 92, 0.5);
 }
 
 .titulo {
   margin: 0 0 12px 0;
-  font-size: 1.25rem;
-  color: #333333;
+  font-family: var(--fonte-titulo);
+  font-size: 1.4rem;
+  font-weight: 500;
+  text-transform: capitalize;
+  color: var(--cor-texto-principal);
 }
 
 .descricao {
-  color: #666666;
-  margin-bottom: 20px;
-  line-height: 1.6;
+  color: var(--cor-texto-secundario);
+  margin-bottom: 24px;
+  line-height: 1.65;
   flex-grow: 1; /* Empurra o botão e as tags para o final do card */
 }
 
@@ -31,30 +33,31 @@
   display: flex;
   gap: 8px;
   flex-wrap: wrap;
-  margin-bottom: 20px;
+  margin-bottom: 24px;
 }
 
 .tag {
-  background-color: #f0f4f8;
-  color: #007bff;
-  padding: 4px 10px;
-  border-radius: 12px;
-  font-size: 0.8rem;
+  background-color: var(--cor-fundo-tag);
+  color: var(--cor-primaria);
+  padding: 4px 12px;
+  border-radius: 999px;
+  font-size: 0.78rem;
   font-weight: 600;
 }
 
 .link {
-  display: inline-block;
+  align-self: flex-start;
   text-decoration: none;
-  color: #ffffff;
-  background-color: #007bff;
-  padding: 10px 16px;
-  border-radius: 6px;
-  font-weight: 500;
-  text-align: center;
-  transition: background-color 0.2s;
+  color: var(--cor-texto-principal);
+  border: 1px solid var(--cor-borda-forte);
+  padding: 10px 20px;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition: border-color 0.2s ease, color 0.2s ease;
 }
 
 .link:hover {
-  background-color: #0056b3;
+  border-color: var(--cor-primaria);
+  color: var(--cor-primaria);
 }
