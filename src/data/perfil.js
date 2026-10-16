@@ -159,8 +159,8 @@ export const perfil = {
     {
       id: 'email',
       rotulo: 'E-mail',
-      valor: 'contatovazrodrigues@gmail.com',
-      url: 'mailto:contatovazrodrigues@gmail.com',
+      valor: 'marcio.sant.gomes@gmail.com',
+      url: 'mailto:marcio.sant.gomes@gmail.com',
       chamada: 'Propostas e oportunidades',
     },
   ],
