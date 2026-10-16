@@ -4,6 +4,45 @@
   gap: 24px;
 }
 
+.filtros {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 32px;
+}
+
+.filtro {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border: 1px solid var(--cor-borda-forte);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--cor-texto-secundario);
+  font: inherit;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: border-color 0.2s ease, color 0.2s ease, background-color 0.2s ease;
+}
+
+.filtro:hover {
+  border-color: var(--cor-primaria);
+  color: var(--cor-texto-principal);
+}
+
+.filtro[aria-pressed='true'] {
+  border-color: var(--cor-primaria);
+  background-color: var(--cor-primaria);
+  color: var(--cor-sobre-primaria);
+}
+
+.contagem {
+  font-size: 0.78rem;
+  opacity: 0.75;
+}
+
 .status {
   color: var(--cor-texto-secundario);
   font-size: 1.1rem;
