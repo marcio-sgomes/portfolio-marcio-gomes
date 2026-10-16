@@ -145,8 +145,8 @@ export const perfil = {
     {
       id: 'linkedin',
       rotulo: 'LinkedIn',
-      valor: 'in/marcio-sgomes',
-      url: 'https://www.linkedin.com/in/marcio-sgomes',
+      valor: 'in/marciogomesdev',
+      url: 'https://www.linkedin.com/in/marciogomesdev',
       chamada: 'Trajetória e recomendações',
     },
     {
