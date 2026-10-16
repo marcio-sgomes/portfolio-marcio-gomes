@@ -1,16 +1,26 @@
 /* src/style/variables.css */
 :root {
-  /* Tokens de Cores */
-  --cor-primaria: #007bff;
-  --cor-primaria-hover: #0056b3;
-  --cor-fundo: #f8f9fa;
-  --cor-fundo-card: #ffffff;
-  --cor-texto-principal: #333333;
-  --cor-texto-secundario: #666666;
-  --cor-borda: #eaeaea;
-  --cor-fundo-tag: #e0f0ff;
-  
-  /* Tokens de Espaçamento e Tipografia */
+  /* Tokens de Cores (tema escuro executivo com destaque dourado) */
+  --cor-primaria: #c9a45c;
+  --cor-primaria-hover: #ddbd7b;
+  --cor-sobre-primaria: #15110a;
+  --cor-fundo: #0b0d12;
+  --cor-fundo-elevado: #0f1218;
+  --cor-fundo-card: #151922;
+  --cor-texto-principal: #ece9e2;
+  --cor-texto-secundario: #a3a8b4;
+  --cor-texto-suave: #747a88;
+  --cor-borda: #222734;
+  --cor-borda-forte: #353b4b;
+  --cor-fundo-tag: rgba(201, 164, 92, 0.12);
+  --cor-erro: #f08a80;
+
+  /* Tokens de Espaçamento, Layout e Tipografia */
   --espacamento-padrao: 24px;
+  --espacamento-lateral: clamp(16px, 5vw, 48px);
+  --largura-maxima: 1200px;
+  --altura-header: 72px;
+  --raio: 14px;
   --fonte-principal: 'Inter', system-ui, sans-serif;
+  --fonte-titulo: 'Playfair Display', Georgia, 'Times New Roman', serif;
 }
