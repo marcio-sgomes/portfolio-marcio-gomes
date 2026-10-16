@@ -24,12 +24,16 @@ O que a aplicação faz hoje:
 - **Início (`/`)** — página única no estilo portfólio executivo, com navegação por âncoras:
   - **Hero:** foto, nome, proposta de valor, 4 características principais e atalhos para LinkedIn, GitHub e e-mail.
   - **Perfil, Competências, Formação, Cases e Método:** trajetória, áreas de atuação, formação (Estácio e Faveni), case Bela Brisa e forma de conduzir projetos.
-  - **Projetos:** busca os repositórios públicos de `marcio-sgomes` na API do GitHub (mais recentes primeiro, ignorando forks), com estados de carregamento e de erro.
+  - **Projetos e estudos:** junta os repositórios públicos de `marcio-sgomes` (API do GitHub, até 100, ignorando forks, repositórios vazios e o README do perfil) com os projetos privados que têm página publicada (`src/data/projetosPrivados.js`). Cada card tem logo (ícone do site ou emblema com iniciais), selos *Autoral/Estudo*, *Em desenvolvimento* e *Código privado*, e os botões "Ver página" e "Ver repositório". Filtros: Todos, Autorais, Estudos e Em desenvolvimento.
   - **Contato:** cartões de LinkedIn, GitHub e e-mail.
 - **Sobre (`/sobre`)** — explica a visão geral do projeto e a stack escolhida (link no rodapé).
 - **404** — qualquer rota desconhecida mostra "Página não encontrada".
 
 > 💡 Os cards usam a **descrição** e os **tópicos** de cada repositório no GitHub. Para um card ficar bonito, basta preencher esses campos no próprio repositório.
+
+> 🏷️ Marcação pelos **tópicos** do repositório no GitHub: `projeto-de-estudo` (ou descrição começando com `[Estudo]`) gera o selo *Estudo*; `em-desenvolvimento` gera o selo *Em desenvolvimento* — basta remover o tópico quando o projeto ficar pronto. O link "Ver página" vem do campo *Website* do repositório ou do GitHub Pages.
+>
+> 🔒 Projetos privados entram só pela lista em `src/data/projetosPrivados.js`, com o que o projeto faz e o link da página — **nunca** link de código, tecnologias ou detalhes de implementação.
 
 > ✏️ Todos os textos, links de contato e o caminho da foto ficam em [`src/data/perfil.js`](src/data/perfil.js). A foto é servida de `public/foto-perfil.jpg` (se faltar, o Hero mostra o monograma "MG").
 
@@ -121,7 +125,8 @@ src/
 │   └── models/       #   Entidade Projeto (contrato usado pelas outras camadas)
 ├── data/             # Acesso a dados
 │   ├── perfil.js     #   Conteúdo do portfólio (textos, formação, cases, contatos)
-│   └── services/     #   githubService (API do GitHub)
+│   ├── projetosPrivados.js # Privados com página publicada e logos dos projetos
+│   └── services/     #   githubService (API do GitHub) e portfolioService (junta públicos e privados)
 ├── presentation/     # Tudo o que é React
 │   ├── components/   #   Header, Hero, Secao, Secoes/*, ProjectCard, Footer, Icone, RolarParaAncora
 │   └── pages/        #   Home e About

@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { obterProjetos } from '../../../data/services/githubService';
+import { obterProjetos } from '../../../data/services/portfolioService';
 import { contatoPorId } from '../../../data/perfil';
 import { ProjectCard } from '../../components/ProjectCard/ProjectCard';
 import { Hero } from '../../components/Hero/Hero';
@@ -12,10 +12,18 @@ import { Cases } from '../../components/Secoes/Cases';
 import { Contato } from '../../components/Secoes/Contato';
 import styles from './Home.module.css';
 
+const FILTROS = [
+  { id: 'todos', rotulo: 'Todos', aplicar: () => true },
+  { id: 'autorais', rotulo: 'Autorais', aplicar: (projeto) => !projeto.estudo },
+  { id: 'estudos', rotulo: 'Estudos', aplicar: (projeto) => projeto.estudo },
+  { id: 'desenvolvimento', rotulo: 'Em desenvolvimento', aplicar: (projeto) => projeto.emDesenvolvimento },
+];
+
 export function Home() {
   const [projetos, setProjetos] = useState([]);
   const [carregando, setCarregando] = useState(true);
   const [erro, setErro] = useState(null);
+  const [filtroAtivo, setFiltroAtivo] = useState('todos');
   const github = contatoPorId('github');
 
   useEffect(() => {
@@ -34,6 +42,9 @@ export function Home() {
     buscarProjetos();
   }, []);
 
+  const filtro = FILTROS.find((item) => item.id === filtroAtivo);
+  const projetosVisiveis = projetos.filter(filtro.aplicar);
+
   return (
     <main>
       <Hero />
@@ -45,9 +56,9 @@ export function Home() {
 
       <Secao
         id="projetos"
-        rotulo="Portfólio"
-        titulo="Meus Projetos"
-        descricao="Atualizados automaticamente a partir dos meus repositórios públicos no GitHub: cada card é código real, versionado e documentado."
+        rotulo="Portfólio de estudos"
+        titulo="Projetos e estudos"
+        descricao="Minha trilha prática de aprendizado: projetos autorais e estudos de cursos. Os repositórios públicos vêm direto do GitHub; nos privados, mostro apenas o que o projeto faz e o link da página publicada."
         destacada
       >
         {carregando && <p className={styles.status}>Conectando ao GitHub...</p>}
@@ -56,13 +67,28 @@ export function Home() {
 
         {!carregando && !erro && (
           <>
+            <div className={styles.filtros} role="group" aria-label="Filtrar projetos">
+              {FILTROS.map((item) => (
+                <button
+                  key={item.id}
+                  type="button"
+                  className={styles.filtro}
+                  aria-pressed={filtroAtivo === item.id}
+                  onClick={() => setFiltroAtivo(item.id)}
+                >
+                  {item.rotulo}
+                  <span className={styles.contagem}>{projetos.filter(item.aplicar).length}</span>
+                </button>
+              ))}
+            </div>
+
             <div className={styles.grade}>
-              {projetos.map((projeto) => (
+              {projetosVisiveis.map((projeto) => (
                 <ProjectCard key={projeto.id} projeto={projeto} />
               ))}
             </div>
             <a href={github.url} target="_blank" rel="noopener noreferrer" className={styles.verTodos}>
-              Ver todos os repositórios no GitHub →
+              Ver meu perfil no GitHub →
             </a>
           </>
         )}
