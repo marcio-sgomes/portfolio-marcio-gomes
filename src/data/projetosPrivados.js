@@ -67,11 +67,19 @@ export const projetosPrivados = [
     logoUrl: 'https://gomestech-gestao-de-entregas.vercel.app/icones/icone-192.png',
     atualizadoEm: '2026-10-15T02:24:45Z',
   },
+  {
+    id: 'privado-calculadora-de-prazos',
+    nome: 'Calculadora de Prazos',
+    descricao:
+      'Calcula prazos processuais em dias úteis ou corridos, já considerando os feriados nacionais e locais.',
+    paginaUrl: 'https://calculadora-de-prazos-sigma.vercel.app',
+    emDesenvolvimento: true,
+    atualizadoEm: '2026-10-17T12:00:00Z',
+  },
 ];
 
 // Logos de repositórios públicos (chave = nome do repositório no GitHub).
 // Os que não estiverem aqui recebem um emblema com as iniciais.
 export const logosRepositorios = {
-  linkdrive: 'https://linkdrive-beta.vercel.app/icon.svg',
   'removedor-marca-dagua': 'https://removedor-marca-dagua-one.vercel.app/icons/icon-192.png',
 };
