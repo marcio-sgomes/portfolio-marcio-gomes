@@ -315,6 +315,14 @@
   font-weight: 600;
 }
 
+.slogan {
+  margin-top: -4px;
+  color: var(--cor-primaria);
+  font-family: var(--fonte-titulo);
+  font-style: italic;
+  font-size: 1.05rem;
+}
+
 .categoria,
 .nota {
   color: var(--cor-texto-secundario);

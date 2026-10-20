@@ -38,13 +38,7 @@
 .item {
   display: flex;
   align-items: center;
-  gap: 28px;
-  padding-right: 28px;
-}
-
-.separador {
-  color: var(--cor-primaria);
-  font-size: 1.1rem;
+  padding-right: 48px;
 }
 
 .empresa {
@@ -67,13 +61,27 @@
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  padding: 6px 16px 6px 6px;
+  padding: 6px 20px 6px 6px;
   border: 1px solid var(--cor-borda);
   border-radius: 999px;
   color: var(--cor-texto-principal);
-  font-size: 0.95rem;
-  font-weight: 500;
   white-space: nowrap;
+}
+
+.projetoTexto {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.25;
+}
+
+.projetoNome {
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.projetoSlogan {
+  color: var(--cor-texto-secundario);
+  font-size: 0.8rem;
 }
 
 @keyframes ida {

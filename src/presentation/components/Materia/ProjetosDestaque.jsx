@@ -11,6 +11,7 @@ function CartaoProjeto({ projeto, grupo }) {
         <span className={styles.selo}>{grupo.selo}</span>
       </div>
       <h4 className={styles.cartaoTitulo}>{projeto.nome}</h4>
+      <p className={styles.slogan}>{projeto.slogan}</p>
       <p className={styles.categoria}>{projeto.categoria}</p>
       <p className={styles.descricaoProjeto}>{projeto.descricao}</p>
       {projeto.nota && <p className={styles.nota}>{projeto.nota}</p>}

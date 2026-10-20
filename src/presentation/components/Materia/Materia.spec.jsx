@@ -55,6 +55,7 @@ describe('Matéria da Home', () => {
     expect(screen.getAllByRole('link', { name: /abrir o app/i })).toHaveLength(comPagina.length);
     expect(screen.getByRole('link', { name: /abrir o app prismaq/i })).toHaveAttribute('target', '_blank');
     expect(screen.getByText(/ideia de 2019/i)).toBeInTheDocument();
+    expect(screen.getByText('Tarefa feita, cofrinho cheio!')).toBeInTheDocument();
   });
 
   it('Competencias deve listar as três colunas, com Em aperfeiçoamento', () => {

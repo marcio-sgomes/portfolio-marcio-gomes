@@ -23,7 +23,9 @@ describe('Letreiro do rodapé', () => {
     expect(within(empresas).getAllByAltText('SulAmérica Seguros')[0]).toHaveAttribute('src', '/empresas/sulamerica.png');
     todosOsProjetos().forEach((projeto) => {
       expect(within(projetos).getAllByText(projeto.nome)).toHaveLength(2);
+      expect(within(projetos).getAllByText(projeto.slogan)).toHaveLength(2);
     });
+    expect(screen.queryByText('✦')).not.toBeInTheDocument();
     screen.getAllByTestId('letreiro-copia').forEach((copia) => {
       expect(copia).toHaveAttribute('aria-hidden', 'true');
     });

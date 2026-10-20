@@ -11,6 +11,7 @@ export const gruposDeProjetos = [
     projetos: [
       {
         nome: 'Currículo Perfeito',
+        slogan: 'Seu currículo pronto, mesmo sem internet.',
         categoria: 'Social · pessoas sem recursos',
         descricao:
           'Quem mais precisa de currículo muitas vezes tem celular, mas não tem internet. Defini app instalável e offline, que pede comprovação de cada emprego e avisa o que falta.',
@@ -19,6 +20,7 @@ export const gruposDeProjetos = [
       },
       {
         nome: 'DG Downloader',
+        slogan: 'Salve o que você ama das redes.',
         categoria: 'Mídia · uso geral',
         descricao:
           'Baixar fotos, vídeos e reels das redes sociais e guardar no celular. Defini instalação por link (Android, iOS e PC), galeria separada por tipo e envio direto para o WhatsApp.',
@@ -27,6 +29,7 @@ export const gruposDeProjetos = [
       },
       {
         nome: 'Removedor',
+        slogan: 'Sua imagem limpa, sem marca d\'água.',
         categoria: 'Imagem · uso geral',
         descricao:
           "Remover marca d'água de imagens. Defini detecção automática da marca, sem estragar a foto, em app instalável por link e com visual leve.",
@@ -35,6 +38,7 @@ export const gruposDeProjetos = [
       },
       {
         nome: 'YouTube MP3',
+        slogan: 'Do vídeo à música em um toque.',
         categoria: 'Áudio · PC e Android',
         descricao:
           'Buscar vídeos e converter em MP3. Defini checagem de atualização antes de cada download, porque o YouTube muda sempre, e aviso quando for demorar.',
@@ -42,6 +46,7 @@ export const gruposDeProjetos = [
       },
       {
         nome: 'GomesTech Entregas',
+        slogan: 'Cada rota com o lucro real.',
         categoria: 'Logística · motoristas de entrega',
         descricao:
           'Motoristas de rota registram as entregas, calculam ganhos, dividem valores com colegas e acompanham o lucro real, mesmo sem internet.',
@@ -50,6 +55,7 @@ export const gruposDeProjetos = [
       },
       {
         nome: 'Calculadora de Prazos',
+        slogan: 'Prazos certos, sem conta de cabeça.',
         categoria: 'Jurídico · uso profissional',
         descricao: 'Calcula prazos processuais em dias úteis ou corridos, já considerando os feriados nacionais e locais.',
         url: 'https://calculadora-de-prazos-sigma.vercel.app',
@@ -57,6 +63,7 @@ export const gruposDeProjetos = [
       },
       {
         nome: 'Jardinagem Profissional',
+        slogan: 'Seu jardim em boas mãos.',
         categoria: 'Site · cliente',
         descricao:
           'Site de uma empresa de jardinagem do Rio de Janeiro, com apresentação dos serviços e pedido de orçamento direto pelo WhatsApp.',
@@ -65,6 +72,7 @@ export const gruposDeProjetos = [
       },
       {
         nome: 'Associação Bela Brisa',
+        slogan: 'Processos organizados, comunidade mais forte.',
         categoria: 'Consultoria de processos · associação comunitária',
         descricao:
           'Diagnóstico da operação, mapeamento e redesenho dos processos internos e implantação de uma metodologia de organização e acompanhamento das atividades.',
@@ -79,6 +87,7 @@ export const gruposDeProjetos = [
     projetos: [
       {
         nome: 'PrismaQ',
+        slogan: 'Qualidade de campo, sem papel.',
         categoria: 'Telecom · certificação de qualidade',
         descricao:
           'A certificação de qualidade em campo era feita em papel. Defini checklist digital com nota automática, fotos com data e local, conferência de material e retorno com prazo de 7 dias.',
@@ -88,6 +97,7 @@ export const gruposDeProjetos = [
       },
       {
         nome: 'Mesadinha Familiar',
+        slogan: 'Tarefa feita, cofrinho cheio!',
         categoria: 'Família · uso próprio',
         descricao:
           'Tarefas da casa que compõem a mesada das crianças. Defini aprovação dos pais com foto de antes e depois, regras de comportamento sempre visíveis, bônus com teto e aviso para todos quando uma tarefa é concluída.',
@@ -96,6 +106,7 @@ export const gruposDeProjetos = [
       },
       {
         nome: 'LinkDrive Beta',
+        slogan: 'O motorista no controle da agenda.',
         categoria: 'Transporte · motoristas particulares',
         descricao:
           'Motoristas montam orçamento e agenda no improviso. Defini orçamento pronto para o WhatsApp, lembretes com o app fechado e painel em que motorista é desativado, nunca apagado.',
@@ -104,6 +115,7 @@ export const gruposDeProjetos = [
       },
       {
         nome: 'winXP',
+        slogan: 'O visual clássico no Windows de hoje.',
         categoria: 'Windows · uso próprio',
         descricao:
           'A aparência e os sons do Windows XP em qualquer Windows, sem mexer nas funções. Defini segurança primeiro: ponto de restauração automático e reverter tudo com um clique.',
@@ -119,6 +131,7 @@ export const gruposDeProjetos = [
     projetos: [
       {
         nome: 'Compra Inteligente',
+        slogan: 'O mercado certo para a sua lista.',
         categoria: 'Consumo · uso geral',
         descricao:
           'Comparar encartes de vários mercados à mão toma tempo. Defini leitura do encarte inteiro por IA, o mercado de melhor custo-benefício com o porquê e lista para conferir o total antes de pagar.',
@@ -127,6 +140,7 @@ export const gruposDeProjetos = [
       },
       {
         nome: 'Sintonia',
+        slogan: 'Mais perto um do outro, todo dia.',
         categoria: 'Relacionamento · casais',
         descricao:
           'App para casais se comunicarem pelas 5 linguagens do amor, com brincadeiras. Defini um app único para público geral e cristão, com fé leve, área de administração e etapa de testes antes de cada versão.',
@@ -135,6 +149,7 @@ export const gruposDeProjetos = [
       },
       {
         nome: 'GomesTech Admin',
+        slogan: 'Todos os projetos num só painel.',
         categoria: 'Gestão · uso próprio',
         descricao:
           'Mais de 40 projetos espalhados. Defini um único painel com todos eles, kanban de problemas, e-mails corporativos gratuitos e avisos para colaboradores.',
@@ -142,6 +157,7 @@ export const gruposDeProjetos = [
       },
       {
         nome: 'Gestor de Contas',
+        slogan: 'Cada conta no seu lugar.',
         categoria: 'Organização · uso próprio',
         descricao:
           'Muitas contas de e-mail, cada uma ligada a um serviço. Defini um mapa de cada conta e onde ela está conectada, com alertas, na web e no PC.',
@@ -149,6 +165,7 @@ export const gruposDeProjetos = [
       },
       {
         nome: 'Nebulosa Geek',
+        slogan: 'Streetwear geek para todo mundo.',
         categoria: 'Loja virtual · streetwear',
         descricao: 'Loja virtual de streetwear geek com visual cyberpunk, pensada para ser acessível a todos.',
         url: 'https://nebulosa-geek.vercel.app',
@@ -164,6 +181,7 @@ export const gruposDeProjetos = [
     projetos: [
       {
         nome: 'Plataforma Ascanius',
+        slogan: 'Do pedido ao manejo, sem papelada.',
         categoria: 'Meio ambiente · cliente',
         descricao:
           'Pedidos de manejo de fauna e controle de pragas. Planejei a plataforma a partir dos requisitos da cliente: custo zero no início, segurança e conversa direta com o cliente.',

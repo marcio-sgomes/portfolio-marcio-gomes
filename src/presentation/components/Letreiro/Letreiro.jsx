@@ -10,7 +10,6 @@ function Faixa({ rotulo, itens, renderizar, sentido }) {
       {itens.map((item) => (
         <li key={item.chave} className={styles.item}>
           {renderizar(item)}
-          <span className={styles.separador} aria-hidden="true">✦</span>
         </li>
       ))}
     </ul>
@@ -53,7 +52,10 @@ export function Letreiro() {
         renderizar={(projeto) => (
           <span className={styles.projeto}>
             <ProjetoLogo nome={projeto.nome} logoUrl={projeto.logoUrl} compacto />
-            {projeto.nome}
+            <span className={styles.projetoTexto}>
+              <span className={styles.projetoNome}>{projeto.nome}</span>
+              <span className={styles.projetoSlogan}>{projeto.slogan}</span>
+            </span>
           </span>
         )}
       />
