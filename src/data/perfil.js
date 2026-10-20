@@ -4,166 +4,233 @@ export const perfil = {
   nome: 'Márcio Gomes',
   nomeCompleto: 'Márcio dos Santos Gomes',
   iniciais: 'MG',
-  cargo: 'Gestor de Projetos & Desenvolvedor de Software',
-  // Coloque sua foto em public/foto-perfil.jpg (retrato vertical, mínimo 1000px de altura).
+  cargo: 'Tecnologia e operações',
   foto: '/foto-perfil.jpg',
-  chamada: 'Transformo estratégia em produto entregue.',
-  resumo:
-    'Uno a visão de gestor à precisão de quem escreve o código. Conduzo projetos do planejamento ao deploy: defino escopo, organizo o time em ciclos curtos e garanto que cada entrega tenha qualidade técnica, prazo cumprido e propósito de negócio.',
 
-  caracteristicas: [
+  manchete: {
+    rotulo: 'Perfil · Tecnologia e operações',
+    titulo: 'Do campo à tecnologia: transformo necessidades em produtos que funcionam.',
+    linhaFina:
+      'Antes de idealizar aplicativos, Márcio Gomes passou 12 anos na ponta da operação, entre redes de telecom, estoque e certificação de qualidade. É de lá que vêm as ideias dos seus projetos.',
+    local: 'Rio de Janeiro',
+    atualizacao: 'Atualizado em outubro de 2026',
+    legendaFoto:
+      'Márcio Gomes foi técnico de instalação, VT, certificação de qualidade e retorno de credenciada na Procisa do Brasil, na operação NET/Claro, entre 2019 e 2021.',
+  },
+
+  // Cada capítulo da matéria. Um parágrafo pode ser texto simples ou { destaque, texto }.
+  historia: [
     {
-      titulo: 'Liderança ponta a ponta',
-      descricao: 'Do PRD e do roadmap até a entrega em produção, com visibilidade para todos os envolvidos.',
+      paragrafos: [
+        'Márcio Gomes aprendeu tecnologia de fora para dentro. Antes de escrever a primeira linha de código, passou anos na rua, em redes de telecom, separando material para técnicos, vistoriando instalações e corrigindo o que tinha ficado errado na casa do cliente. Essa ordem, primeiro a operação e depois o sistema, explica quase tudo o que ele faz hoje.',
+      ],
     },
     {
-      titulo: 'Gestão ágil',
-      descricao: 'Sprints, backlog priorizado, User Stories e quadros Kanban com métricas de andamento.',
+      titulo: 'Disciplina antes de tudo',
+      paragrafos: [
+        'A carreira começou em 2009, na Força Aérea Brasileira, como bombeiro de aeródromo. Foram quatro anos de protocolo, treino e decisão sob pressão. Em seguida veio a rua: entre 2014 e 2016, trabalhou como cabista na manutenção de redes da Oi, pela Telemont/Serede, e fez inventários por contrato na Ivallis.',
+      ],
     },
     {
-      titulo: 'Engenharia de qualidade',
-      descricao: 'Clean Architecture, SOLID, testes automatizados e CI/CD em cada Pull Request.',
+      titulo: 'Do ajudante ao chefe de estoque',
+      paragrafos: [
+        'Na R. Bockmann, na operação SKY, entre 2017 e 2018, entrou como técnico ajudante e foi promovido três vezes, até chefe de estoque. Cuidava da triagem de equipamentos danificados e recondicionados, lia as ordens de serviço para separar o material de cada técnico e conduzia os inventários.',
+      ],
     },
     {
-      titulo: 'Ponte entre negócio e tecnologia',
-      descricao: 'Traduzo objetivos em requisitos claros e decisões técnicas em linguagem de negócio.',
+      titulo: 'A escola da qualidade',
+      paragrafos: [
+        'Na Procisa do Brasil, na operação NET/Claro, Márcio acumulou quatro funções entre 2019 e 2021:',
+        { destaque: 'Instalação e visita técnica.', texto: 'Instalações residenciais de TV e internet e atendimento de chamados.' },
+        {
+          destaque: 'Certificação de qualidade.',
+          texto:
+            'Vistoria das instalações endereço por endereço, com OS, cliente, técnico e fotos de antes e depois, além da conferência de material para identificar fraude.',
+        },
+        {
+          destaque: 'Retorno de credenciada.',
+          texto:
+            'Correção de falhas técnicas ou de sistema dentro do prazo da instalação, protegendo os indicadores do técnico e da empresa.',
+        },
+        {
+          destaque: 'Formação.',
+          texto:
+            'Os técnicos recém-formados que iam para a Zona Oeste faziam dupla com ele: acompanhava o serviço, anotava os pontos e mostrava como fazer.',
+        },
+      ],
+      citacao: 'Eu acompanhava o serviço deles, ia anotando os pontos e depois mostrava como deve ser feito.',
+      fechamento: 'Tudo era feito em papel. A ideia de um aplicativo para esse trabalho nasceu ali, em 2019, e virou o PrismaQ em 2026.',
+    },
+    {
+      titulo: 'A virada para o software',
+      paragrafos: [
+        'Em 2021, Márcio fez a formação de seis meses da Recode e começou os cursos da Cubos Academy e da DIO, que segue fazendo até hoje. Em 2022, antes mesmo de terminar a faculdade de Análise e Desenvolvimento de Sistemas, entrou na ESX/DevLand como desenvolvedor, e não ficou em uma frente só.',
+        'Começou com Flutter e Firebase no projeto da BoutSex e seguiu com Flutter e .NET no Conecta Fé. Na SulAmérica Seguros, trabalhou com Spring Boot (Java) e AngularJS. Depois fez a sustentação da Genial Investimentos e, no novo projeto da empresa, a Genial Solar, atuou no front-end em React. Nos projetos seguintes, mais curtos, usou Ionic e Blazor (C#), e participou de um projeto interno: um jogo de batalha naval em C#, com partes em Python, integrado aos sistemas de outros times.',
+      ],
+      quadro: {
+        titulo: 'As frentes na DevLand · 2022 – 2025',
+        linhas: [
+          ['BoutSex', 'Flutter e Firebase'],
+          ['Conecta Fé', 'Flutter e .NET'],
+          ['SulAmérica Seguros', 'Spring Boot (Java) e AngularJS'],
+          ['Genial Investimentos', 'Sustentação'],
+          ['Genial Solar', 'Front-end em React'],
+          ['Projetos curtos', 'Ionic e Blazor (C#)'],
+          ['Projeto interno', 'Batalha naval em C# e Python'],
+        ],
+      },
+      fechamento:
+        'Em todo o período trabalhou em ciclo ágil, com Jira e Azure DevOps, e fez suporte N1 e N2 com SQL. Em 2025, concluiu a pós em Gestão de Projetos e Métodos Ágeis.',
+    },
+    {
+      titulo: 'Hoje: GomesTech',
+      paragrafos: [
+        'Desde 2025, Márcio se dedica a projetos próprios sob o nome GomesTech. São mais de 40, entre prontos, em testes, em desenvolvimento e em planejamento. O método é sempre o mesmo: entender o problema, para quem ele existe e por quê; definir o que o produto precisa fazer; entregar em partes; e validar com quem vai usar. A IA entra como ferramenta de construção. O que entra e o que fica de fora é decisão dele.',
+      ],
     },
   ],
 
-  sobre: [
-    'Sou Márcio dos Santos Gomes e atuo na interseção entre gestão de projetos e desenvolvimento de software. Acredito que bons projetos nascem de objetivos claros, avançam com cadência previsível e só terminam quando geram valor real para quem vai usá-los.',
-    'Na prática, isso significa assumir a responsabilidade pelo todo: entender o problema junto aos stakeholders, transformar a visão em documento de produto e roadmap, organizar o trabalho em sprints e acompanhar cada entrega até a produção. Quando é hora de construir, coloco a mão no código com o mesmo rigor: arquitetura em camadas, testes automatizados e pipeline de integração contínua.',
-    'Esse duplo olhar reduz o ruído entre as áreas, acelera decisões e oferece ao cliente algo raro: um único responsável que entende tanto o cronograma quanto o Pull Request.',
-  ],
-  citacao: 'Gestão sem execução é intenção. Execução sem gestão é sorte. Meu trabalho é unir as duas.',
-
-  destaques: [
-    { valor: '3', rotulo: 'sprints planejadas e entregues na construção deste portfólio' },
-    { valor: '97%', rotulo: 'de cobertura mínima de testes exigida no pipeline' },
-    { valor: '100%', rotulo: 'dos Pull Requests validados por CI: lint, testes e build' },
+  raioX: [
+    { rotulo: 'Nome', valores: ['Márcio dos Santos Gomes'] },
+    { rotulo: 'Base', valores: ['Rio de Janeiro/RJ'] },
+    { rotulo: 'Em campo', valores: ['2009 – 2021 · FAB, telecom e estoque'] },
+    { rotulo: 'Em software', valores: ['Desde 2022 · Flutter, .NET, Java, Angular, React, Ionic, Blazor, C# e Python'] },
+    {
+      rotulo: 'Formação',
+      valores: [
+        'Análise e Desenvolvimento de Sistemas · Estácio, 2023',
+        'Pós em Gestão de Projetos e Métodos Ágeis · FAVENI, 2025',
+        'Recode, 2021 · Cubos Academy e DIO, contínuo',
+      ],
+    },
+    { rotulo: 'Projetos', valores: ['Mais de 40'] },
+    { rotulo: 'Procura', valores: ['Vagas em requisitos, implantação, qualidade e projetos'] },
   ],
 
   competencias: [
     {
-      titulo: 'Gestão de Projetos',
-      resumo: 'Planejamento, execução e controle com foco em previsibilidade.',
+      titulo: 'Pontos fortes',
+      tom: 'dourado',
       itens: [
-        'PRD, roadmap e definição de escopo',
-        'Scrum, Kanban e cerimônias ágeis',
-        'Backlog, User Stories e critérios de aceite',
-        'Gestão de stakeholders e riscos',
-        'GitHub Projects, milestones e indicadores',
+        'Entender o problema antes da solução: por quê, para quê e para quem',
+        'Transformar uma ideia em definição clara do que o produto faz',
+        'Investigar falhas com método, passo a passo, com logs e conversa com o usuário',
+        'Operação de campo em telecom: instalação, VT, certificação de qualidade e retorno',
+        'Estoque e inventário: triagem, separação por OS e controle',
+        'Treinar e acompanhar técnicos em campo',
       ],
     },
     {
-      titulo: 'Desenvolvimento de Software',
-      resumo: 'Aplicações web modernas, modulares e fáceis de manter.',
+      titulo: 'Ferramentas do dia a dia',
+      tom: 'azul',
       itens: [
-        'React, JavaScript e Vite',
-        'Clean Architecture e princípios SOLID',
-        'Integração com APIs REST',
-        'Testes com Vitest e Testing Library',
-        'CSS Modules e Design Tokens',
+        'Projetos com Flutter, Firebase, .NET, Spring Boot (Java), AngularJS, React, Ionic, Blazor, C# e Python',
+        'React e TypeScript nos projetos próprios, com IA como ferramenta de construção',
+        'Git em equipe: branches, commits, homologação e publicação na Vercel',
+        'Scrum e Kanban, com Jira, Azure DevOps e GitHub Projects',
+        'Suporte N1 e N2, com consultas em SQL',
+        'Banco de dados e notificações com Supabase e Firebase',
       ],
     },
     {
-      titulo: 'Governança & Entrega',
-      resumo: 'Processos que garantem qualidade a cada versão.',
+      titulo: 'Em aperfeiçoamento',
+      tom: 'verde',
       itens: [
-        'CI/CD com GitHub Actions',
-        'Deploy contínuo na Vercel',
-        'Conventional Commits e fluxo de branches',
-        'Code review com checklist de PR',
-        'Documentação técnica e de produto',
+        'Clean Architecture e Clean Code',
+        'Design System e Design Patterns',
+        'LLMs e Machine Learning',
+        'Lógica de programação e integração de APIs, para codar com cada vez mais autonomia',
+        'Histórias de usuário e critérios de aceite no formato Dado / Quando / Então',
       ],
     },
   ],
 
-  formacao: [
-    {
-      nivel: 'Pós-graduação',
-      curso: 'Gestão de Projetos Ágeis',
-      instituicao: 'Faveni',
-      descricao:
-        'Especialização em frameworks ágeis, planejamento adaptativo e liderança de times orientados a valor, base da forma como conduzo cada projeto.',
-    },
-    {
-      nivel: 'Graduação',
-      curso: 'Análise e Desenvolvimento de Sistemas',
-      instituicao: 'Estácio',
-      descricao:
-        'Fundamentos de engenharia de software, modelagem de sistemas, banco de dados e programação que sustentam minhas decisões técnicas.',
-    },
-  ],
+  encaixe: {
+    introducao:
+      'Gosto de ter a ideia, definir e ver ficar pronto. Prefiro um problema aberto a uma tarefa já mastigada. Em até 3 anos quero estar gerindo e idealizando projetos.',
+    linhas: [
+      { area: 'Analista de Requisitos / Negócios júnior', nivel: 'Alto', tom: 'alto', porque: 'Meu ponto mais forte é transformar necessidade em definição.' },
+      {
+        area: 'Qualidade e operações técnicas em telecom',
+        nivel: 'Alto',
+        tom: 'alto',
+        porque: 'Fiz certificação de qualidade, retorno e formação de técnicos, e conheço o processo por dentro.',
+      },
+      {
+        area: 'Analista de Implantação / Suporte N2',
+        nivel: 'Alto',
+        tom: 'alto',
+        porque: 'Método de investigação sólido, mais a vivência de técnico e de suporte N1/N2.',
+      },
+      {
+        area: 'Analista de Projetos / PMO júnior',
+        nivel: 'Médio-alto',
+        tom: 'medio',
+        porque: 'Bom com pessoas e processo, com pós em Gestão Ágil. Aperfeiçoando priorização e planejamento.',
+      },
+      {
+        area: 'Automação com IA / low-code',
+        nivel: 'Médio',
+        tom: 'medio',
+        porque: 'Especifico bem o que a IA precisa fazer, e essas ferramentas pedem menos código.',
+      },
+      {
+        area: 'Desenvolvedor Front-End / Full Stack júnior',
+        nivel: 'Em evolução',
+        tom: 'evolucao',
+        porque:
+          'Passagem por várias stacks em consultoria, Git e publicação sólidos; aperfeiçoando a lógica para programar com mais autonomia.',
+      },
+    ],
+    proximoPasso: 'Product Owner ou Gestão de Projetos, em 1 a 3 anos.',
+  },
 
-  cases: [
-    {
-      cliente: 'Associação Comunitária Bela Brisa',
-      tipo: 'Consultoria de processos',
-      resumo:
-        'Estruturação dos processos da associação a partir de um diagnóstico da operação: identificação dos gargalos, desenho de fluxos de trabalho mais claros e implementação de metodologias de organização e acompanhamento das atividades.',
-      entregas: [
-        'Diagnóstico dos problemas e prioridades da operação',
-        'Mapeamento e redesenho dos processos internos',
-        'Implementação de metodologia de gestão e acompanhamento',
-      ],
-    },
-    {
-      cliente: 'Este portfólio',
-      tipo: 'Produto digital ponta a ponta',
-      resumo:
-        'Meta-portfólio gerido como um produto real: PRD e roadmap documentados, User Stories no GitHub Projects, sprints com milestones e uma aplicação React com Clean Architecture, testes e deploy contínuo.',
-      entregas: [
-        'PRD, roadmap e backlog organizados em sprints',
-        'Aplicação React integrada à API do GitHub',
-        'Pipeline de CI com lint, testes e build a cada PR',
-      ],
-      link: { rotulo: 'Ver documentação do produto', url: 'https://github.com/marcio-sgomes/portfolio-tech' },
-    },
-  ],
-
-  metodo: [
-    {
-      titulo: 'Diagnóstico',
-      descricao: 'Escuto o negócio e mapeio objetivos, restrições e riscos antes de qualquer linha de código.',
-    },
-    {
-      titulo: 'Planejamento',
-      descricao: 'Consolido o escopo em um PRD e defino roadmap, milestones e critérios de aceite mensuráveis.',
-    },
-    {
-      titulo: 'Execução',
-      descricao: 'Sprints curtas, backlog priorizado e código revisado, testado e integrado continuamente.',
-    },
-    {
-      titulo: 'Entrega e evolução',
-      descricao: 'Deploy automatizado, acompanhamento dos resultados e melhoria contínua com base em dados.',
-    },
+  // Empresas e clientes exibidos no letreiro do rodapé (nomes em texto, sem logos de terceiros).
+  empresas: [
+    'Força Aérea Brasileira',
+    'Telemont',
+    'Serede',
+    'Ivallis',
+    'R. Bockmann · SKY',
+    'Procisa do Brasil · NET/Claro',
+    'ESX / DevLand',
+    'BoutSex',
+    'Conecta Fé',
+    'SulAmérica Seguros',
+    'Genial Investimentos',
+    'Genial Solar',
   ],
 
   contatos: [
+    {
+      id: 'email',
+      rotulo: 'E-mail',
+      valor: 'marcio.sant.gomes@gmail.com',
+      url: 'mailto:marcio.sant.gomes@gmail.com',
+    },
+    {
+      id: 'whatsapp',
+      rotulo: 'WhatsApp',
+      valor: '(21) 97560-4306',
+      url: 'https://wa.me/5521975604306',
+    },
     {
       id: 'linkedin',
       rotulo: 'LinkedIn',
       valor: 'in/marciogomesdev',
       url: 'https://www.linkedin.com/in/marciogomesdev',
-      chamada: 'Trajetória e recomendações',
     },
     {
       id: 'github',
       rotulo: 'GitHub',
       valor: 'marcio-sgomes',
       url: 'https://github.com/marcio-sgomes',
-      chamada: 'Código, projetos e contribuições',
-    },
-    {
-      id: 'email',
-      rotulo: 'E-mail',
-      valor: 'marcio.sant.gomes@gmail.com',
-      url: 'mailto:marcio.sant.gomes@gmail.com',
-      chamada: 'Propostas e oportunidades',
     },
   ],
 };
 
 export const contatoPorId = (id) => perfil.contatos.find((contato) => contato.id === id);
+
+// Links externos abrem em nova aba; e-mail abre no aplicativo de e-mail.
+export const atributosDoLink = (contato) =>
+  contato.id === 'email' ? {} : { target: '_blank', rel: 'noopener noreferrer' };
