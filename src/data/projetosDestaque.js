@@ -1,5 +1,6 @@
 // Projetos da seção "Os projetos", agrupados pela situação de cada um.
 // Repositórios privados: mostrar apenas o que o projeto faz e o link da página publicada.
+// Logos em /logos/*.svg foram criadas para os apps que ainda não tinham uma.
 
 export const gruposDeProjetos = [
   {
@@ -30,13 +31,14 @@ export const gruposDeProjetos = [
         descricao:
           "Remover marca d'água de imagens. Defini detecção automática da marca, sem estragar a foto, em app instalável por link e com visual leve.",
         url: 'https://removedor-marca-dagua-one.vercel.app',
-        logoUrl: 'https://removedor-marca-dagua-one.vercel.app/icons/icon-192.png',
+        logoUrl: '/logos/removedor.svg',
       },
       {
         nome: 'YouTube MP3',
         categoria: 'Áudio · PC e Android',
         descricao:
           'Buscar vídeos e converter em MP3. Defini checagem de atualização antes de cada download, porque o YouTube muda sempre, e aviso quando for demorar.',
+        logoUrl: '/logos/youtube-mp3.svg',
       },
       {
         nome: 'GomesTech Entregas',
@@ -51,6 +53,7 @@ export const gruposDeProjetos = [
         categoria: 'Jurídico · uso profissional',
         descricao: 'Calcula prazos processuais em dias úteis ou corridos, já considerando os feriados nacionais e locais.',
         url: 'https://calculadora-de-prazos-sigma.vercel.app',
+        logoUrl: '/logos/calculadora-de-prazos.svg',
       },
       {
         nome: 'Jardinagem Profissional',
@@ -89,6 +92,7 @@ export const gruposDeProjetos = [
         descricao:
           'Tarefas da casa que compõem a mesada das crianças. Defini aprovação dos pais com foto de antes e depois, regras de comportamento sempre visíveis, bônus com teto e aviso para todos quando uma tarefa é concluída.',
         url: 'https://mesadinha-familiar.vercel.app',
+        logoUrl: 'https://mesadinha-familiar.vercel.app/favicon.svg',
       },
       {
         nome: 'LinkDrive Beta',
@@ -103,6 +107,7 @@ export const gruposDeProjetos = [
         categoria: 'Windows · uso próprio',
         descricao:
           'A aparência e os sons do Windows XP em qualquer Windows, sem mexer nas funções. Defini segurança primeiro: ponto de restauração automático e reverter tudo com um clique.',
+        logoUrl: '/logos/winxp.svg',
       },
     ],
   },
@@ -118,6 +123,7 @@ export const gruposDeProjetos = [
         descricao:
           'Comparar encartes de vários mercados à mão toma tempo. Defini leitura do encarte inteiro por IA, o mercado de melhor custo-benefício com o porquê e lista para conferir o total antes de pagar.',
         nota: 'Código privado · meta de 100% de testes',
+        logoUrl: '/logos/compra-inteligente.svg',
       },
       {
         nome: 'Sintonia',
@@ -132,18 +138,21 @@ export const gruposDeProjetos = [
         categoria: 'Gestão · uso próprio',
         descricao:
           'Mais de 40 projetos espalhados. Defini um único painel com todos eles, kanban de problemas, e-mails corporativos gratuitos e avisos para colaboradores.',
+        logoUrl: '/logos/gomestech-admin.svg',
       },
       {
         nome: 'Gestor de Contas',
         categoria: 'Organização · uso próprio',
         descricao:
           'Muitas contas de e-mail, cada uma ligada a um serviço. Defini um mapa de cada conta e onde ela está conectada, com alertas, na web e no PC.',
+        logoUrl: '/logos/gestor-de-contas.svg',
       },
       {
         nome: 'Nebulosa Geek',
         categoria: 'Loja virtual · streetwear',
         descricao: 'Loja virtual de streetwear geek com visual cyberpunk, pensada para ser acessível a todos.',
         url: 'https://nebulosa-geek.vercel.app',
+        logoUrl: '/logos/nebulosa-geek.svg',
       },
     ],
   },
