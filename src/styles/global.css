@@ -34,6 +34,29 @@ img {
   outline-offset: 3px;
 }
 
+/* Efeito de rolagem: cada bloco com a classe .revelar sobe e aparece ao entrar na tela.
+   Usa animações guiadas pela rolagem; em navegadores sem suporte, o conteúdo aparece normalmente. */
+@keyframes revelar {
+  from {
+    opacity: 0;
+    transform: translateY(32px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: view()) {
+    .revelar {
+      animation: revelar linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 55%;
+    }
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;

@@ -50,7 +50,7 @@ describe('Home Page', () => {
 
     render(<Home />);
 
-    await screen.findByRole('heading', { name: /projetos e estudos/i });
+    await screen.findByRole('heading', { name: /estudos e código/i });
     expect(await screen.findByRole('button', { name: /todos/i })).toBeInTheDocument();
     expect(screen.queryByText(/conectando ao github/i)).not.toBeInTheDocument();
   });

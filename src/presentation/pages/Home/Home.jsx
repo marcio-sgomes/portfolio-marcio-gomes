@@ -2,14 +2,13 @@ import { useState, useEffect } from 'react';
 import { obterProjetos } from '../../../data/services/portfolioService';
 import { contatoPorId } from '../../../data/perfil';
 import { ProjectCard } from '../../components/ProjectCard/ProjectCard';
-import { Hero } from '../../components/Hero/Hero';
 import { Secao } from '../../components/Secao/Secao';
-import { Perfil } from '../../components/Secoes/Perfil';
-import { Competencias } from '../../components/Secoes/Competencias';
-import { Metodo } from '../../components/Secoes/Metodo';
-import { Formacao } from '../../components/Secoes/Formacao';
-import { Cases } from '../../components/Secoes/Cases';
-import { Contato } from '../../components/Secoes/Contato';
+import { Manchete } from '../../components/Materia/Manchete';
+import { Historia } from '../../components/Materia/Historia';
+import { ProjetosDestaque } from '../../components/Materia/ProjetosDestaque';
+import { Competencias } from '../../components/Materia/Competencias';
+import { Encaixe } from '../../components/Materia/Encaixe';
+import { Contato } from '../../components/Materia/Contato';
 import styles from './Home.module.css';
 
 const FILTROS = [
@@ -47,17 +46,16 @@ export function Home() {
 
   return (
     <main>
-      <Hero />
-      <Perfil />
+      <Manchete />
+      <Historia />
+      <ProjetosDestaque />
       <Competencias />
-      <Formacao />
-      <Cases />
-      <Metodo />
+      <Encaixe />
 
       <Secao
-        id="projetos"
-        rotulo="Portfólio de estudos"
-        titulo="Projetos e estudos"
+        id="github"
+        rotulo="No GitHub"
+        titulo="Estudos e código"
         descricao="Minha trilha prática de aprendizado: projetos autorais e estudos de cursos. Os repositórios públicos vêm direto do GitHub; nos privados, mostro apenas o que o projeto faz e o link da página publicada."
         destacada
       >

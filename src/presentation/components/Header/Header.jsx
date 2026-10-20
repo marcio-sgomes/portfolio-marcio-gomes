@@ -3,16 +3,16 @@ import { perfil } from '../../../data/perfil';
 import styled from './Header.module.css';
 
 const secoes = [
-  { ancora: 'perfil', rotulo: 'Perfil' },
-  { ancora: 'competencias', rotulo: 'Competências' },
-  { ancora: 'formacao', rotulo: 'Formação' },
-  { ancora: 'cases', rotulo: 'Cases' },
+  { ancora: 'historia', rotulo: 'A história' },
   { ancora: 'projetos', rotulo: 'Projetos' },
+  { ancora: 'competencias', rotulo: 'Competências' },
+  { ancora: 'encaixe', rotulo: 'Onde me encaixo' },
 ];
 
 export function Header() {
   return (
     <header className={styled.header}>
+      <div className={styled.progresso} aria-hidden="true" />
       <div className={styled.conteudo}>
         <Link to="/" className={styled.logo}>
           <span className={styled.marca}>{perfil.iniciais}</span>
@@ -24,7 +24,7 @@ export function Header() {
               {secao.rotulo}
             </Link>
           ))}
-          <Link to="/#contato" className={styled.cta}>Fale comigo</Link>
+          <Link to="/#contato" className={styled.cta}>Contato</Link>
         </nav>
       </div>
     </header>

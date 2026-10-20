@@ -1,0 +1,519 @@
+/* ---------- Manchete ---------- */
+.manchete {
+  padding: clamp(48px, 8vw, 88px) var(--espacamento-lateral) 24px;
+}
+
+.conteudo {
+  max-width: var(--largura-maxima);
+  margin: 0 auto;
+}
+
+.rotulo {
+  color: var(--cor-primaria);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.titulo {
+  max-width: 1000px;
+  margin-top: 18px;
+  font-family: var(--fonte-titulo);
+  font-size: clamp(2.4rem, 6.2vw, 4.3rem);
+  font-weight: 400;
+  line-height: 1.04;
+  color: var(--cor-texto-titulo);
+}
+
+.linhaFina {
+  max-width: 820px;
+  margin-top: 22px;
+  font-family: var(--fonte-titulo);
+  font-style: italic;
+  font-size: clamp(1.25rem, 2.4vw, 1.65rem);
+  line-height: 1.35;
+  color: var(--cor-texto-claro);
+}
+
+.credito {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 18px;
+  margin-top: 28px;
+  padding: 10px 0;
+  border-top: 1px solid var(--cor-borda);
+  border-bottom: 1px solid var(--cor-borda);
+  color: var(--cor-texto-secundario);
+  font-size: 0.88rem;
+}
+
+.foto {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 20px 40px;
+  margin-top: 32px;
+}
+
+.imagem,
+.monograma {
+  flex: 0 1 380px;
+  width: 100%;
+  max-width: 380px;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  border: 1px solid var(--cor-borda);
+  border-radius: 20px;
+}
+
+.monograma {
+  display: grid;
+  place-items: center;
+  background: var(--cor-fundo-card);
+  color: var(--cor-primaria);
+  font-family: var(--fonte-titulo);
+  font-size: 5rem;
+}
+
+.legenda {
+  flex: 1 1 280px;
+  max-width: 420px;
+  padding-left: 16px;
+  border-left: 2px solid var(--cor-primaria);
+  color: var(--cor-texto-secundario);
+  font-size: 0.95rem;
+  font-style: italic;
+}
+
+/* ---------- História ---------- */
+.historia {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 48px;
+  max-width: var(--largura-maxima);
+  margin: 0 auto;
+  padding: 48px var(--espacamento-lateral) 56px;
+}
+
+.texto {
+  flex: 999 1 560px;
+  min-width: 0;
+  max-width: 720px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  color: var(--cor-texto-claro);
+  font-size: 1.12rem;
+  line-height: 1.75;
+}
+
+.capitulo {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.texto strong {
+  color: var(--cor-texto-titulo);
+  font-weight: 600;
+}
+
+/* Letra capitular no primeiro parágrafo, como em revista */
+.capitulo:first-child > p:first-child::first-letter {
+  float: left;
+  padding: 8px 12px 0 0;
+  font-family: var(--fonte-titulo);
+  font-size: 5.2rem;
+  line-height: 0.8;
+  color: var(--cor-primaria);
+}
+
+.intertitulo {
+  margin-top: 16px;
+  font-family: var(--fonte-titulo);
+  font-size: 2rem;
+  font-weight: 400;
+  line-height: 1.2;
+  color: var(--cor-texto-titulo);
+}
+
+.citacao {
+  margin: 12px 0;
+  padding: 24px 0;
+  border-top: 1px solid var(--cor-primaria);
+  border-bottom: 1px solid var(--cor-primaria);
+}
+
+.citacao p {
+  font-family: var(--fonte-titulo);
+  font-style: italic;
+  font-size: clamp(1.5rem, 3vw, 1.9rem);
+  line-height: 1.3;
+  color: var(--cor-texto-titulo);
+}
+
+.quadro {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 20px 22px;
+  border: 1px solid var(--cor-borda);
+  border-radius: 16px;
+  background: var(--cor-fundo-card);
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.quadroTitulo,
+.raioXTitulo {
+  color: var(--cor-primaria);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.quadroLinha {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 4px 16px;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--cor-borda);
+}
+
+.quadroLinha:last-child {
+  border-bottom: none;
+}
+
+.quadroLinha dt {
+  color: var(--cor-texto-titulo);
+}
+
+.quadroLinha dd {
+  color: var(--cor-texto-secundario);
+}
+
+.raioX {
+  flex: 1 1 280px;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 24px;
+  border: 1px solid var(--cor-borda);
+  border-radius: 16px;
+  background: var(--cor-fundo-card);
+  font-size: 0.95rem;
+}
+
+.raioXItem {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--cor-borda);
+}
+
+.raioXItem dt {
+  color: var(--cor-texto-secundario);
+  font-size: 0.82rem;
+}
+
+.raioXItem dd {
+  color: var(--cor-texto-titulo);
+}
+
+.botao {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  margin-top: 6px;
+  padding: 12px 20px;
+  border-radius: 999px;
+  background: var(--cor-primaria);
+  color: var(--cor-sobre-primaria);
+  font-weight: 600;
+  text-decoration: none;
+  transition: background-color 0.2s ease;
+}
+
+.botao:hover {
+  background: var(--cor-primaria-hover);
+}
+
+/* ---------- Projetos ---------- */
+.pronto { --tom: var(--cor-pronto); --tom-borda: var(--cor-pronto-borda); }
+.testes { --tom: var(--cor-testes); --tom-borda: var(--cor-testes-borda); }
+.desenvolvimento { --tom: var(--cor-desenvolvimento); --tom-borda: var(--cor-desenvolvimento-borda); }
+.planejamento { --tom: var(--cor-texto-claro); --tom-borda: var(--cor-borda-forte); }
+
+.grupo + .grupo {
+  margin-top: 48px;
+}
+
+.grupoTitulo {
+  margin-bottom: 18px;
+  color: var(--tom);
+  font-size: 0.92rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.grade {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr));
+  gap: 20px;
+}
+
+.cartao {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 24px;
+  border: 1px solid var(--cor-borda);
+  border-radius: 16px;
+  background: var(--cor-fundo-card);
+  transition: transform 0.25s ease, border-color 0.25s ease;
+}
+
+.cartao:hover {
+  transform: translateY(-4px);
+  border-color: var(--tom-borda);
+}
+
+.cartao.planejamento {
+  border-style: dashed;
+  background: var(--cor-fundo-elevado);
+}
+
+.cartaoTopo {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.selo {
+  padding: 2px 10px;
+  border: 1px solid var(--tom-borda);
+  border-radius: 999px;
+  color: var(--tom);
+  font-size: 0.8rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.cartaoTitulo {
+  margin-top: 6px;
+  color: var(--cor-texto-titulo);
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.categoria,
+.nota {
+  color: var(--cor-texto-secundario);
+  font-size: 0.85rem;
+}
+
+.descricaoProjeto {
+  color: var(--cor-texto-claro);
+  font-size: 0.95rem;
+}
+
+.abrir {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 44px;
+  margin-top: auto;
+  color: var(--cor-primaria);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.abrir:hover {
+  color: var(--cor-primaria-hover);
+}
+
+.somenteLeitor {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+/* ---------- Competências ---------- */
+.dourado { --tom: var(--cor-primaria); }
+.azul { --tom: var(--cor-testes); }
+.verde { --tom: var(--cor-pronto); }
+
+.colunas {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+  gap: 20px;
+}
+
+.coluna {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 24px;
+  border: 1px solid var(--cor-borda);
+  border-top: 3px solid var(--tom);
+  border-radius: 16px;
+  background: var(--cor-fundo-card);
+}
+
+.coluna h3 {
+  color: var(--cor-texto-titulo);
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.coluna ul {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding-left: 20px;
+  color: var(--cor-texto-claro);
+  font-size: 0.95rem;
+}
+
+/* ---------- Onde me encaixo ---------- */
+.tabelaCaixa {
+  overflow-x: auto;
+  border: 1px solid var(--cor-borda);
+  border-radius: 16px;
+}
+
+.tabela {
+  width: 100%;
+  min-width: 640px;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+  text-align: left;
+}
+
+.tabela th,
+.tabela td {
+  padding: 14px 18px;
+  border-top: 1px solid var(--cor-borda);
+  color: var(--cor-texto-claro);
+  vertical-align: top;
+}
+
+.tabela thead th {
+  border-top: none;
+  background: var(--cor-fundo-card);
+  color: var(--cor-texto-titulo);
+  font-weight: 600;
+}
+
+.tabela tbody th {
+  color: var(--cor-texto-titulo);
+  font-weight: 500;
+}
+
+.tabela td.alto { color: var(--cor-pronto); font-weight: 600; white-space: nowrap; }
+.tabela td.medio { color: var(--cor-testes); font-weight: 600; white-space: nowrap; }
+.tabela td.evolucao { color: var(--cor-texto-claro); font-weight: 600; white-space: nowrap; }
+
+.proximoPasso {
+  margin-top: 20px;
+  color: var(--cor-texto-claro);
+}
+
+.proximoPasso strong {
+  color: var(--cor-texto-titulo);
+}
+
+/* ---------- Contato ---------- */
+.contato {
+  padding: 72px var(--espacamento-lateral) 88px;
+}
+
+.contatoCaixa {
+  max-width: var(--largura-maxima);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  padding: 48px 32px;
+  border: 1px solid var(--cor-borda);
+  border-radius: 24px;
+  background: var(--cor-fundo-card);
+  text-align: center;
+}
+
+.contatoTitulo {
+  font-family: var(--fonte-titulo);
+  font-size: clamp(2.2rem, 4vw, 2.8rem);
+  font-weight: 400;
+  color: var(--cor-texto-titulo);
+}
+
+.contatoTexto {
+  max-width: 560px;
+  color: var(--cor-texto-claro);
+}
+
+.contatoLista {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  padding-top: 8px;
+  list-style: none;
+}
+
+.contatoBotao {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 48px;
+  padding: 12px 22px;
+  border: 1px solid var(--cor-borda-forte);
+  border-radius: 999px;
+  color: var(--cor-texto-principal);
+  font-weight: 600;
+  text-decoration: none;
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+.contatoBotao:hover {
+  border-color: var(--cor-primaria);
+}
+
+.contatoBotao.email {
+  border-color: var(--cor-primaria);
+  background: var(--cor-primaria);
+  color: var(--cor-sobre-primaria);
+}
+
+.contatoBotao.whatsapp {
+  border-color: var(--cor-pronto-borda);
+  color: var(--cor-pronto);
+}
+
+.contatoValor {
+  font-weight: 400;
+}
+
+.contatoBotao.linkedin .contatoValor,
+.contatoBotao.github .contatoValor {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}

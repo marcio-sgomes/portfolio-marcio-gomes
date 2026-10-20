@@ -18,6 +18,12 @@ const caminhos = {
       <path d="m3 6 9 7 9-7" />
     </g>
   ),
+  whatsapp: (
+    <g fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M21 11.5a8.4 8.4 0 0 1-12.4 7.4L3 21l2.1-5.4A8.4 8.4 0 1 1 21 11.5z" />
+      <path d="M9 9.5c0 3 2.5 5.5 5.5 5.5l1.2-1.4-2-1-1 .8a3.6 3.6 0 0 1-2.1-2.1l.8-1-1-2z" />
+    </g>
+  ),
   seta: (
     <path
       fill="none"

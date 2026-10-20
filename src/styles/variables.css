@@ -1,8 +1,8 @@
 /* src/style/variables.css */
 :root {
   /* Tokens de Cores (tema escuro executivo com destaque dourado) */
-  --cor-primaria: #c9a45c;
-  --cor-primaria-hover: #ddbd7b;
+  --cor-primaria: #d4ae63;
+  --cor-primaria-hover: #ecc97f;
   --cor-sobre-primaria: #15110a;
   --cor-fundo: #0b0d12;
   --cor-fundo-elevado: #0f1218;
@@ -14,6 +14,14 @@
   --cor-borda-forte: #353b4b;
   --cor-fundo-tag: rgba(201, 164, 92, 0.12);
   --cor-erro: #f08a80;
+  --cor-texto-titulo: #f4f1ea;
+  --cor-texto-claro: #c4c9d2;
+  --cor-pronto: #5fc48a;
+  --cor-pronto-borda: #2d5a40;
+  --cor-testes: #8fbcff;
+  --cor-testes-borda: #2c4468;
+  --cor-desenvolvimento: #e8b75a;
+  --cor-desenvolvimento-borda: #5c4a24;
 
   /* Tokens de Espaçamento, Layout e Tipografia */
   --espacamento-padrao: 24px;
@@ -22,5 +30,5 @@
   --altura-header: 72px;
   --raio: 14px;
   --fonte-principal: 'Inter', system-ui, sans-serif;
-  --fonte-titulo: 'Playfair Display', Georgia, 'Times New Roman', serif;
+  --fonte-titulo: 'Instrument Serif', Georgia, 'Times New Roman', serif;
 }

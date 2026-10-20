@@ -86,3 +86,28 @@
     display: none;
   }
 }
+
+/* Barra de leitura: enche conforme a página rola (só em navegadores com suporte) */
+.progresso {
+  display: none;
+  position: absolute;
+  inset: auto 0 -1px 0;
+  height: 2px;
+  background-color: var(--cor-primaria);
+  transform-origin: 0 50%;
+}
+
+@keyframes encher {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: scroll()) {
+    .progresso {
+      display: block;
+      animation: encher linear both;
+      animation-timeline: scroll(root);
+    }
+  }
+}
