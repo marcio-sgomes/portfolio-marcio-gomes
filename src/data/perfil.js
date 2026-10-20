@@ -190,7 +190,7 @@ export const perfil = {
   empresas: [
     { nome: 'Força Aérea Brasileira', logo: '/empresas/fab.png' },
     { nome: 'Telemont', logo: '/empresas/telemont.png' },
-    { nome: 'Serede' },
+    { nome: 'Serede', logo: '/empresas/serede.png' },
     { nome: 'Ivallis', logo: '/empresas/ivalis.png' },
     { nome: 'R. Bockmann' },
     { nome: 'SKY', logo: '/empresas/sky.png' },
