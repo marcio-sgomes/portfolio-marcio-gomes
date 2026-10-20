@@ -198,7 +198,7 @@ export const perfil = {
     { nome: 'NET/Claro', logo: '/empresas/claro.png' },
     { nome: 'ESX', logo: '/empresas/esx.png' },
     { nome: 'DevLand', logo: '/empresas/devland.png' },
-    { nome: 'BoutSex' },
+    { nome: 'BoutSex', logo: '/empresas/boutsex.png' },
     { nome: 'Conecta Fé' },
     { nome: 'SulAmérica Seguros', logo: '/empresas/sulamerica.png' },
     { nome: 'Genial Investimentos', logo: '/empresas/genial-investimentos.png' },
