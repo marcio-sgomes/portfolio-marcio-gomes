@@ -28,17 +28,23 @@ function Faixa({ rotulo, itens, renderizar, sentido }) {
 
 // Carrossel infinito e lento com as empresas onde trabalhei e os projetos que construí.
 export function Letreiro() {
-  const empresas = perfil.empresas.map((nome) => ({ chave: nome, nome }));
+  const empresas = perfil.empresas.map((empresa) => ({ chave: empresa.nome, ...empresa }));
   const projetos = todosOsProjetos().map((projeto) => ({ chave: projeto.nome, ...projeto }));
 
   return (
     <div className={styles.letreiro}>
-      <p className={styles.titulo}>Onde trabalhei e o que construí</p>
+      <p className={styles.titulo}>Empresas e clientes por onde passei · Projetos que construí</p>
       <Faixa
         rotulo="Empresas e clientes"
         sentido="ida"
         itens={empresas}
-        renderizar={(empresa) => <span className={styles.empresa}>{empresa.nome}</span>}
+        renderizar={(empresa) =>
+          empresa.logo ? (
+            <img src={empresa.logo} alt={empresa.nome} className={styles.logoEmpresa} loading="lazy" />
+          ) : (
+            <span className={styles.empresa}>{empresa.nome}</span>
+          )
+        }
       />
       <Faixa
         rotulo="Projetos"

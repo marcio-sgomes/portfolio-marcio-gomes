@@ -185,20 +185,24 @@ export const perfil = {
     proximoPasso: 'Product Owner ou Gestão de Projetos, em 1 a 3 anos.',
   },
 
-  // Empresas e clientes exibidos no letreiro do rodapé (nomes em texto, sem logos de terceiros).
+  // Empresas e clientes do letreiro do rodapé. Logos oficiais, na cor do texto do site;
+  // quem não tem arquivo em public/empresas aparece pelo nome.
   empresas: [
-    'Força Aérea Brasileira',
-    'Telemont',
-    'Serede',
-    'Ivallis',
-    'R. Bockmann · SKY',
-    'Procisa do Brasil · NET/Claro',
-    'ESX / DevLand',
-    'BoutSex',
-    'Conecta Fé',
-    'SulAmérica Seguros',
-    'Genial Investimentos',
-    'Genial Solar',
+    { nome: 'Força Aérea Brasileira', logo: '/empresas/fab.png' },
+    { nome: 'Telemont', logo: '/empresas/telemont.png' },
+    { nome: 'Serede' },
+    { nome: 'Ivallis', logo: '/empresas/ivalis.png' },
+    { nome: 'R. Bockmann' },
+    { nome: 'SKY', logo: '/empresas/sky.png' },
+    { nome: 'Procisa do Brasil', logo: '/empresas/procisa.png' },
+    { nome: 'NET/Claro', logo: '/empresas/claro.png' },
+    { nome: 'ESX', logo: '/empresas/esx.png' },
+    { nome: 'DevLand', logo: '/empresas/devland.png' },
+    { nome: 'BoutSex' },
+    { nome: 'Conecta Fé' },
+    { nome: 'SulAmérica Seguros', logo: '/empresas/sulamerica.png' },
+    { nome: 'Genial Investimentos', logo: '/empresas/genial-investimentos.png' },
+    { nome: 'Genial Solar', logo: '/empresas/genial-solar.png' },
   ],
 
   contatos: [
