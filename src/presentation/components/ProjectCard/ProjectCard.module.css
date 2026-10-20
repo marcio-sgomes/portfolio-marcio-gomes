@@ -169,3 +169,18 @@
   border-color: var(--cor-primaria);
   color: var(--cor-primaria);
 }
+
+/* Versão pequena da logo, usada no letreiro do rodapé */
+.logoCompacto {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+}
+
+.logoCompacto.monograma {
+  font-size: 0.8rem;
+}
+
+.logoCompacto .logoImagem {
+  padding: 4px;
+}

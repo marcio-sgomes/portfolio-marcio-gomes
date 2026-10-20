@@ -2,12 +2,13 @@ import { useState } from 'react';
 import { iniciaisDoNome, corDoNome } from './logoProjeto';
 import styles from './ProjectCard.module.css';
 
-export function ProjetoLogo({ nome, logoUrl }) {
+export function ProjetoLogo({ nome, logoUrl, compacto = false }) {
   const [logoIndisponivel, setLogoIndisponivel] = useState(false);
+  const tamanho = compacto ? ` ${styles.logoCompacto}` : '';
 
   if (logoUrl && !logoIndisponivel) {
     return (
-      <span className={styles.logo}>
+      <span className={`${styles.logo}${tamanho}`}>
         <img
           src={logoUrl}
           alt={`Logo de ${nome}`}
@@ -21,7 +22,7 @@ export function ProjetoLogo({ nome, logoUrl }) {
 
   return (
     <span
-      className={`${styles.logo} ${styles.monograma}`}
+      className={`${styles.logo} ${styles.monograma}${tamanho}`}
       style={{ '--cor-logo': corDoNome(nome) }}
       data-testid="logo-monograma"
       aria-hidden="true"

@@ -1,21 +1,17 @@
 import { Link } from 'react-router-dom';
-import { perfil } from '../../../data/perfil';
+import { perfil, atributosDoLink } from '../../../data/perfil';
+import { Letreiro } from '../Letreiro/Letreiro';
 import styles from './Footer.module.css';
 
 export function Footer() {
   return (
     <footer className={styles.footer}>
+      <Letreiro />
       <div className={styles.conteudo}>
-        <p>
-          © {new Date().getFullYear()} {perfil.nomeCompleto} · {perfil.cargo}
-        </p>
+        <p>© {new Date().getFullYear()} GomesTech — feito por {perfil.nome}</p>
         <nav className={styles.links} aria-label="Links do rodapé">
           {perfil.contatos.map((contato) => (
-            <a
-              key={contato.id}
-              href={contato.url}
-              {...(contato.id !== 'email' && { target: '_blank', rel: 'noopener noreferrer' })}
-            >
+            <a key={contato.id} href={contato.url} {...atributosDoLink(contato)}>
               {contato.rotulo}
             </a>
           ))}
