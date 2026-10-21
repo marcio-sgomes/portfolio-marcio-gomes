@@ -1,5 +1,6 @@
 import { perfil, atributosDoLink } from '../../../data/perfil';
 import { Icone } from '../Icone/Icone';
+import { BotaoCurriculo } from './BotaoCurriculo';
 import styles from './Materia.module.css';
 
 export function Contato() {
@@ -28,6 +29,7 @@ export function Contato() {
             </li>
           ))}
         </ul>
+        <BotaoCurriculo />
       </div>
     </section>
   );

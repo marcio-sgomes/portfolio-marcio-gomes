@@ -24,6 +24,16 @@ const caminhos = {
       <path d="M9 9.5c0 3 2.5 5.5 5.5 5.5l1.2-1.4-2-1-1 .8a3.6 3.6 0 0 1-2.1-2.1l.8-1-1-2z" />
     </g>
   ),
+  download: (
+    <path
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.8"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      d="M12 4v11M7 10l5 5 5-5M5 20h14"
+    />
+  ),
   seta: (
     <path
       fill="none"

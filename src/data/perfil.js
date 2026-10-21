@@ -6,6 +6,7 @@ export const perfil = {
   iniciais: 'MG',
   cargo: 'Tecnologia e operações',
   foto: '/foto-perfil.jpg',
+  curriculo: '/curriculo-marcio-gomes.pdf',
 
   manchete: {
     rotulo: 'Perfil · Tecnologia e operações',

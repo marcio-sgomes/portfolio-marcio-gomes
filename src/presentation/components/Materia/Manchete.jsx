@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { perfil } from '../../../data/perfil';
+import { BotaoCurriculo } from './BotaoCurriculo';
 import styles from './Materia.module.css';
 
 // Abertura no formato de matéria: rótulo, título, linha fina, crédito e foto com legenda.
@@ -18,6 +19,7 @@ export function Manchete() {
           <span aria-hidden="true">·</span>
           <span>{manchete.atualizacao}</span>
         </p>
+        <BotaoCurriculo />
 
         <figure className={`${styles.foto} revelar`}>
           {fotoIndisponivel ? (

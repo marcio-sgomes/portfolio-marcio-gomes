@@ -18,6 +18,7 @@ describe('Matéria da Home', () => {
     expect(screen.getByText('Atualizado em outubro de 2026')).toBeInTheDocument();
     expect(screen.getByRole('img', { name: /foto de márcio gomes/i })).toBeInTheDocument();
     expect(screen.getByText(/técnico de instalação, VT, certificação de qualidade/i)).toBeInTheDocument();
+    expect(screen.getByRole('link', { name: /baixar currículo/i })).toHaveAttribute('href', '/curriculo-marcio-gomes.pdf');
   });
 
   it('Manchete deve exibir o monograma quando a foto não carregar', () => {
@@ -82,6 +83,7 @@ describe('Matéria da Home', () => {
     expect(screen.getByRole('link', { name: /whatsapp/i })).toHaveAttribute('href', 'https://wa.me/5521975604306');
     expect(screen.getByRole('link', { name: /linkedin/i })).toHaveAttribute('rel', 'noopener noreferrer');
     expect(screen.getByRole('link', { name: /github/i })).toHaveAttribute('target', '_blank');
+    expect(screen.getByRole('link', { name: /baixar currículo/i })).toHaveAttribute('download', 'Curriculo-Marcio-Gomes.pdf');
   });
 
   it('atributosDoLink deve abrir externos em nova aba e o e-mail no próprio app', () => {
