@@ -48,19 +48,59 @@
   font-size: 0.88rem;
 }
 
-.foto {
+/* Abertura em duas colunas: texto e ações à esquerda, foto à direita */
+.abertura {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) clamp(220px, 28vw, 340px);
+  align-items: start;
+  gap: 32px 64px;
+  margin-top: 24px;
+}
+
+.aberturaTexto {
+  min-width: 0;
+}
+
+.acoes {
   display: flex;
   flex-wrap: wrap;
-  align-items: flex-end;
-  gap: 20px 40px;
-  margin-top: 32px;
+  align-items: center;
+  gap: 12px;
+  margin-top: 28px;
+}
+
+.acoes .botaoCurriculo {
+  margin-top: 0;
+}
+
+.botaoSecundario {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 48px;
+  padding: 12px 22px;
+  border: 1px solid var(--cor-borda-forte);
+  border-radius: 999px;
+  color: var(--cor-texto-principal);
+  font-weight: 600;
+  text-decoration: none;
+  transition: border-color 0.2s ease;
+}
+
+.botaoSecundario:hover {
+  border-color: var(--cor-primaria);
+}
+
+.foto {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin: 0;
 }
 
 .imagem,
 .monograma {
-  flex: 0 1 380px;
   width: 100%;
-  max-width: 380px;
   aspect-ratio: 4 / 5;
   object-fit: cover;
   border: 1px solid var(--cor-borda);
@@ -77,13 +117,22 @@
 }
 
 .legenda {
-  flex: 1 1 280px;
-  max-width: 420px;
-  padding-left: 16px;
+  padding-left: 14px;
   border-left: 2px solid var(--cor-primaria);
   color: var(--cor-texto-secundario);
-  font-size: 0.95rem;
+  font-size: 0.88rem;
   font-style: italic;
+  line-height: 1.5;
+}
+
+@media (max-width: 700px) {
+  .abertura {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .foto {
+    max-width: 420px;
+  }
 }
 
 /* ---------- História ---------- */
@@ -92,7 +141,7 @@
   flex-wrap: wrap;
   align-items: flex-start;
   gap: 48px;
-  max-width: var(--largura-maxima);
+  max-width: calc(var(--largura-maxima) + 2 * var(--espacamento-lateral));
   margin: 0 auto;
   padding: 48px var(--espacamento-lateral) 56px;
 }
@@ -207,6 +256,13 @@
   border-radius: 16px;
   background: var(--cor-fundo-card);
   font-size: 0.95rem;
+}
+
+/* Quando as colunas empilham, o resumo vem antes da história (leitura rápida) */
+@media (max-width: 960px) {
+  .raioX {
+    order: -1;
+  }
 }
 
 .raioXItem {
@@ -516,6 +572,52 @@
   font-weight: 400;
 }
 
+@media (max-width: 600px) {
+  .contatoLista {
+    flex-direction: column;
+    align-self: stretch;
+  }
+
+  .contatoCaixa {
+    padding: 40px 20px;
+  }
+
+  .contatoLista li {
+    display: flex;
+    min-width: 0;
+  }
+
+  .contatoBotao,
+  .contatoCaixa .botaoCurriculo {
+    box-sizing: border-box;
+    justify-content: center;
+    width: 100%;
+    min-width: 0;
+    padding: 12px 16px;
+    overflow-wrap: anywhere;
+  }
+
+  .contatoCaixa .botaoCurriculo {
+    align-self: stretch;
+  }
+
+  /* No celular o ícone já diz o que é: mostra só o endereço/número */
+  .contatoBotao.email .contatoRotulo,
+  .contatoBotao.whatsapp .contatoRotulo {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+  }
+
+  .contatoBotao.email .contatoValor,
+  .contatoBotao.whatsapp .contatoValor {
+    font-weight: 600;
+  }
+}
+
 .contatoBotao.linkedin .contatoValor,
 .contatoBotao.github .contatoValor {
   position: absolute;
@@ -546,6 +648,16 @@
 .botaoCurriculo:hover {
   background: var(--cor-primaria);
   color: var(--cor-sobre-primaria);
+}
+
+.botaoCurriculoDestaque {
+  background: var(--cor-primaria);
+  color: var(--cor-sobre-primaria);
+}
+
+.botaoCurriculoDestaque:hover {
+  border-color: var(--cor-primaria-hover);
+  background: var(--cor-primaria-hover);
 }
 
 .contatoCaixa .botaoCurriculo {

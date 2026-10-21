@@ -18,11 +18,15 @@ const FILTROS = [
   { id: 'desenvolvimento', rotulo: 'Em desenvolvimento', aplicar: (projeto) => projeto.emDesenvolvimento },
 ];
 
+// Quantos cartões aparecem antes do "Mostrar todos" (evita uma página longa demais no celular)
+const LIMITE_INICIAL = 6;
+
 export function Home() {
   const [projetos, setProjetos] = useState([]);
   const [carregando, setCarregando] = useState(true);
   const [erro, setErro] = useState(null);
   const [filtroAtivo, setFiltroAtivo] = useState('todos');
+  const [mostrarTodos, setMostrarTodos] = useState(false);
   const github = contatoPorId('github');
 
   useEffect(() => {
@@ -42,7 +46,18 @@ export function Home() {
   }, []);
 
   const filtro = FILTROS.find((item) => item.id === filtroAtivo);
-  const projetosVisiveis = projetos.filter(filtro.aplicar);
+  const projetosFiltrados = projetos.filter(filtro.aplicar);
+  const projetosVisiveis = mostrarTodos ? projetosFiltrados : projetosFiltrados.slice(0, LIMITE_INICIAL);
+  const restantes = projetosFiltrados.length - projetosVisiveis.length;
+  // "Todos" sempre aparece; os outros filtros só quando têm algum projeto
+  const filtrosDisponiveis = FILTROS.filter(
+    (item) => item.id === 'todos' || projetos.some(item.aplicar),
+  );
+
+  const escolherFiltro = (id) => {
+    setFiltroAtivo(id);
+    setMostrarTodos(false);
+  };
 
   return (
     <main>
@@ -56,7 +71,7 @@ export function Home() {
         id="github"
         rotulo="No GitHub"
         titulo="Estudos e código"
-        descricao="Minha trilha prática de aprendizado: projetos autorais e estudos de cursos. Os repositórios públicos vêm direto do GitHub; nos privados, mostro apenas o que o projeto faz e o link da página publicada."
+        descricao="Repositórios públicos, direto do GitHub: estudos de cursos e projetos de código aberto. Os apps autorais de código privado estão na seção Os projetos, acima."
         destacada
       >
         {carregando && <p className={styles.status}>Conectando ao GitHub...</p>}
@@ -66,13 +81,13 @@ export function Home() {
         {!carregando && !erro && (
           <>
             <div className={styles.filtros} role="group" aria-label="Filtrar projetos">
-              {FILTROS.map((item) => (
+              {filtrosDisponiveis.map((item) => (
                 <button
                   key={item.id}
                   type="button"
                   className={styles.filtro}
                   aria-pressed={filtroAtivo === item.id}
-                  onClick={() => setFiltroAtivo(item.id)}
+                  onClick={() => escolherFiltro(item.id)}
                 >
                   {item.rotulo}
                   <span className={styles.contagem}>{projetos.filter(item.aplicar).length}</span>
@@ -85,9 +100,17 @@ export function Home() {
                 <ProjectCard key={projeto.id} projeto={projeto} />
               ))}
             </div>
-            <a href={github.url} target="_blank" rel="noopener noreferrer" className={styles.verTodos}>
-              Ver meu perfil no GitHub →
-            </a>
+
+            <div className={styles.rodapeLista}>
+              {restantes > 0 && (
+                <button type="button" className={styles.mostrarTodos} onClick={() => setMostrarTodos(true)}>
+                  Mostrar todos ({projetosFiltrados.length})
+                </button>
+              )}
+              <a href={github.url} target="_blank" rel="noopener noreferrer" className={styles.verTodos}>
+                Ver meu perfil no GitHub →
+              </a>
+            </div>
           </>
         )}
       </Secao>

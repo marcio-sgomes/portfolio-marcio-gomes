@@ -22,7 +22,7 @@ export function Contato() {
               >
                 <Icone nome={contato.id} tamanho={18} />
                 <span>
-                  {contato.rotulo}
+                  <span className={styles.contatoRotulo}>{contato.rotulo}</span>
                   <span className={styles.contatoValor}> {contato.valor}</span>
                 </span>
               </a>

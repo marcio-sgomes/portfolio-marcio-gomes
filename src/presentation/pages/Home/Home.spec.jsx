@@ -55,7 +55,29 @@ describe('Home Page', () => {
     expect(screen.queryByText(/conectando ao github/i)).not.toBeInTheDocument();
   });
 
-  // 4. Error Handling
+  // 4. Lista longa: começa com 6 e abre o resto no botão; filtro sem projeto some
+  it('deve mostrar 6 projetos de início, abrir o resto em "Mostrar todos" e esconder filtros vazios', async () => {
+    const projetos = Array.from({ length: 8 }, (_, i) =>
+      new Projeto({ id: i, nome: `Repo ${i + 1}`, descricao: 'Estudo', codigoUrl: 'http://url.com', estudo: true }),
+    );
+    portfolioService.obterProjetos.mockResolvedValue(projetos);
+
+    render(<Home />);
+
+    expect(await screen.findByText('Repo 6')).toBeInTheDocument();
+    expect(screen.queryByText('Repo 7')).not.toBeInTheDocument();
+    expect(screen.queryByRole('button', { name: /^em desenvolvimento/i })).not.toBeInTheDocument();
+    expect(screen.queryByRole('button', { name: /^autorais/i })).not.toBeInTheDocument();
+
+    fireEvent.click(screen.getByRole('button', { name: 'Mostrar todos (8)' }));
+    expect(screen.getByText('Repo 8')).toBeInTheDocument();
+    expect(screen.queryByRole('button', { name: /mostrar todos/i })).not.toBeInTheDocument();
+
+    fireEvent.click(screen.getByRole('button', { name: /^estudos/i }));
+    expect(screen.queryByText('Repo 7')).not.toBeInTheDocument();
+  });
+
+  // 5. Error Handling
   it('deve exibir mensagem de erro amigável se a busca de projetos falhar', async () => {
     portfolioService.obterProjetos.mockRejectedValue(new Error('Falha na API'));
 

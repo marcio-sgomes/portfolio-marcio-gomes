@@ -8,7 +8,7 @@
 
 .titulo {
   width: 100%;
-  max-width: var(--largura-maxima);
+  max-width: calc(var(--largura-maxima) + 2 * var(--espacamento-lateral));
   margin: 0 auto;
   padding: 0 var(--espacamento-lateral);
   color: var(--cor-texto-secundario);

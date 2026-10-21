@@ -10,9 +10,11 @@
   flex-wrap: wrap;
   justify-content: space-between;
   gap: 16px;
+  /* Mesma largura útil das seções; a linha de cima acompanha o texto */
+  width: calc(100% - 2 * var(--espacamento-lateral));
   max-width: var(--largura-maxima);
   margin: 0 auto;
-  padding: 24px var(--espacamento-lateral) 32px;
+  padding: 24px 0 32px;
   border-top: 1px solid var(--cor-borda);
 }
 

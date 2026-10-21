@@ -1,5 +1,5 @@
 import { Projeto } from '../../domain/models/Projeto';
-import { logosRepositorios } from '../projetosPrivados';
+import { logosRepositorios } from '../logosRepositorios';
 
 const GITHUB_USER = 'marcio-sgomes';
 const TOPICO_ESTUDO = 'projeto-de-estudo';

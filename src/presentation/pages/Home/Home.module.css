@@ -53,9 +53,33 @@
   font-weight: 600;
 }
 
+.rodapeLista {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px 28px;
+  margin-top: 32px;
+}
+
+.mostrarTodos {
+  min-height: 48px;
+  padding: 12px 22px;
+  border: 1px solid var(--cor-borda-forte);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--cor-texto-principal);
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  transition: border-color 0.2s ease;
+}
+
+.mostrarTodos:hover {
+  border-color: var(--cor-primaria);
+}
+
 .verTodos {
   display: inline-block;
-  margin-top: 40px;
   color: var(--cor-primaria);
   font-weight: 600;
   text-decoration: none;

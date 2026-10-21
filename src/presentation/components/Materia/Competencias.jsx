@@ -8,7 +8,7 @@ export function Competencias() {
       id="competencias"
       rotulo="Competências"
       titulo="O que eu entrego, e o que aperfeiçoo a cada projeto"
-      descricao="Resultado de uma avaliação em 5 etapas, do perfil ao código."
+      descricao="Onde já entrego resultado, as ferramentas que uso no dia a dia e o que estou aperfeiçoando."
     >
       <div className={styles.colunas}>
         {perfil.competencias.map((bloco) => (

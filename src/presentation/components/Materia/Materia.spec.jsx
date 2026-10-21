@@ -19,6 +19,7 @@ describe('Matéria da Home', () => {
     expect(screen.getByRole('img', { name: /foto de márcio gomes/i })).toBeInTheDocument();
     expect(screen.getByText(/técnico de instalação, VT, certificação de qualidade/i)).toBeInTheDocument();
     expect(screen.getByRole('link', { name: /baixar currículo/i })).toHaveAttribute('href', '/curriculo-marcio-gomes.pdf');
+    expect(screen.getByRole('link', { name: /ver projetos/i })).toHaveAttribute('href', '#projetos');
   });
 
   it('Manchete deve exibir o monograma quando a foto não carregar', () => {
