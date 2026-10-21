@@ -135,19 +135,8 @@
   }
 }
 
-/* ---------- História ---------- */
-.historia {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: flex-start;
-  gap: 48px;
-  max-width: calc(var(--largura-maxima) + 2 * var(--espacamento-lateral));
-  margin: 0 auto;
-  padding: 48px var(--espacamento-lateral) 56px;
-}
-
+/* ---------- Trajetória ---------- */
 .texto {
-  flex: 999 1 560px;
   min-width: 0;
   max-width: 720px;
   display: flex;
@@ -245,32 +234,61 @@
   color: var(--cor-texto-secundario);
 }
 
+.texto[hidden] {
+  display: none;
+}
+
+.lerMais {
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 48px;
+  margin-top: 8px;
+  padding: 12px 22px;
+  border: 1px solid var(--cor-borda-forte);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--cor-texto-principal);
+  font: inherit;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: border-color 0.2s ease;
+}
+
+.lerMais:hover {
+  border-color: var(--cor-primaria);
+}
+
+.lerMaisSeta {
+  color: var(--cor-primaria);
+}
+
+/* Raio-X: resumo em faixa logo abaixo da abertura */
 .raioX {
-  flex: 1 1 280px;
-  min-width: 0;
   display: flex;
   flex-direction: column;
-  gap: 14px;
-  padding: 24px;
+  gap: 6px;
+  margin-top: 40px;
+  padding: 20px 24px;
   border: 1px solid var(--cor-borda);
   border-radius: 16px;
   background: var(--cor-fundo-card);
   font-size: 0.95rem;
 }
 
-/* Quando as colunas empilham, o resumo vem antes da história (leitura rápida) */
-@media (max-width: 960px) {
-  .raioX {
-    order: -1;
-  }
+.raioXLista {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  column-gap: 28px;
 }
 
 .raioXItem {
   display: flex;
   flex-direction: column;
   gap: 2px;
-  padding: 12px 0;
-  border-bottom: 1px solid var(--cor-borda);
+  padding: 10px 0;
 }
 
 .raioXItem dt {

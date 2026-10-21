@@ -92,8 +92,6 @@ export const perfil = {
   ],
 
   raioX: [
-    { rotulo: 'Nome', valores: ['Márcio dos Santos Gomes'] },
-    { rotulo: 'Base', valores: ['Rio de Janeiro/RJ'] },
     { rotulo: 'Em campo', valores: ['2009 – 2021 · FAB, telecom e estoque'] },
     { rotulo: 'Em software', valores: ['Desde 2022 · Flutter, .NET, Java, Angular, React, Ionic, Blazor, C# e Python'] },
     {
@@ -101,7 +99,6 @@ export const perfil = {
       valores: [
         'Análise e Desenvolvimento de Sistemas · Estácio, 2023',
         'Pós em Gestão de Projetos e Métodos Ágeis · FAVENI, 2025',
-        'Recode, 2021 · Cubos Academy e DIO, contínuo',
       ],
     },
     { rotulo: 'Projetos', valores: ['Mais de 40'] },

@@ -30,7 +30,7 @@ export function ProjetosDestaque() {
   return (
     <Secao
       id="projetos"
-      rotulo="Os projetos"
+      rotulo="Projetos"
       titulo="Problemas reais, decisões claras"
       descricao="Para quem é cada projeto, o problema e o que foi definido. Separados por situação."
     >

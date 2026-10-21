@@ -75,9 +75,113 @@
   color: var(--cor-sobre-primaria);
 }
 
+/* Seções lado a lado no computador */
+.lista {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.botaoMenu {
+  display: none;
+}
+
+/* No celular, as seções ficam num menu que abre abaixo do topo */
 @media (max-width: 860px) {
-  .link {
+  .nav {
+    gap: 12px;
+  }
+
+  .botaoMenu {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    min-height: 40px;
+    padding: 8px 16px;
+    border: 1px solid var(--cor-borda-forte);
+    border-radius: 999px;
+    background: transparent;
+    color: var(--cor-texto-principal);
+    font: inherit;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+  }
+
+  .iconeMenu,
+  .iconeMenu::before,
+  .iconeMenu::after {
+    display: block;
+    width: 16px;
+    height: 2px;
+    border-radius: 2px;
+    background-color: currentColor;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+  }
+
+  .iconeMenu {
+    position: relative;
+  }
+
+  .iconeMenu::before,
+  .iconeMenu::after {
+    content: '';
+    position: absolute;
+    left: 0;
+  }
+
+  .iconeMenu::before {
+    top: -5px;
+  }
+
+  .iconeMenu::after {
+    top: 5px;
+  }
+
+  .iconeMenu[data-aberto='true'] {
+    background-color: transparent;
+  }
+
+  .iconeMenu[data-aberto='true']::before {
+    transform: translateY(5px) rotate(45deg);
+  }
+
+  .iconeMenu[data-aberto='true']::after {
+    transform: translateY(-5px) rotate(-45deg);
+  }
+
+  .lista {
     display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    padding: 8px var(--espacamento-lateral) 16px;
+    border-bottom: 1px solid var(--cor-borda);
+    background-color: var(--cor-fundo);
+    box-shadow: 0 16px 32px rgba(0, 0, 0, 0.35);
+  }
+
+  .lista[data-aberto='true'] {
+    display: flex;
+  }
+
+  .lista .link {
+    display: block;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--cor-borda);
+    color: var(--cor-texto-principal);
+    font-size: 1.05rem;
+  }
+
+  .lista li:last-child .link {
+    border-bottom: none;
   }
 }
 

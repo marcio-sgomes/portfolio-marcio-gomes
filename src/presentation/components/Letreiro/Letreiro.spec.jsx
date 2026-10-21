@@ -1,4 +1,4 @@
-import { render, screen, within } from '@testing-library/react';
+import { render, screen, within, fireEvent } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
 import { describe, it, expect } from 'vitest';
 import { Letreiro } from './Letreiro';
@@ -54,8 +54,17 @@ describe('Letreiro do rodapé', () => {
       </MemoryRouter>,
     );
 
-    expect(screen.getByRole('link', { name: 'A história' })).toHaveAttribute('href', '/#historia');
+    expect(screen.getByRole('link', { name: 'Projetos' })).toHaveAttribute('href', '/#projetos');
+    expect(screen.getByRole('link', { name: 'Trajetória' })).toHaveAttribute('href', '/#historia');
     expect(screen.getByRole('link', { name: 'Onde me encaixo' })).toHaveAttribute('href', '/#encaixe');
     expect(screen.getByRole('link', { name: 'Contato' })).toHaveAttribute('href', '/#contato');
+
+    // No celular as seções ficam no botão Menu
+    const menu = screen.getByRole('button', { name: /menu/i });
+    expect(menu).toHaveAttribute('aria-expanded', 'false');
+    fireEvent.click(menu);
+    expect(menu).toHaveAttribute('aria-expanded', 'true');
+    fireEvent.keyDown(window, { key: 'Escape' });
+    expect(menu).toHaveAttribute('aria-expanded', 'false');
   });
 });

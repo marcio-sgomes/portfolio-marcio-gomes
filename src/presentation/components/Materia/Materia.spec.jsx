@@ -20,6 +20,10 @@ describe('Matéria da Home', () => {
     expect(screen.getByText(/técnico de instalação, VT, certificação de qualidade/i)).toBeInTheDocument();
     expect(screen.getByRole('link', { name: /baixar currículo/i })).toHaveAttribute('href', '/curriculo-marcio-gomes.pdf');
     expect(screen.getByRole('link', { name: /ver projetos/i })).toHaveAttribute('href', '#projetos');
+
+    const raioX = screen.getByRole('complementary', { name: 'Raio-X' });
+    expect(within(raioX).getByText('Mais de 40')).toBeInTheDocument();
+    expect(within(raioX).getByText(/requisitos, implantação, qualidade e projetos/i)).toBeInTheDocument();
   });
 
   it('Manchete deve exibir o monograma quando a foto não carregar', () => {
@@ -31,18 +35,24 @@ describe('Matéria da Home', () => {
     expect(screen.getByTestId('monograma')).toHaveTextContent('MG');
   });
 
-  it('Historia deve contar os capítulos, a citação, as frentes da DevLand e o Raio-X', () => {
+  it('Historia deve abrir com a introdução e mostrar o resto só ao pedir', () => {
     render(<Historia />);
 
-    expect(screen.getByRole('heading', { name: 'A escola da qualidade' })).toBeInTheDocument();
+    expect(screen.getByRole('heading', { level: 2, name: /doze anos de operação/i })).toBeInTheDocument();
+    expect(screen.getByText(/aprendeu tecnologia de fora para dentro/i)).toBeInTheDocument();
+    expect(screen.queryByRole('heading', { name: 'A escola da qualidade' })).not.toBeInTheDocument();
+
+    const botao = screen.getByRole('button', { name: /ler a trajetória completa/i });
+    expect(botao).toHaveAttribute('aria-expanded', 'false');
+    fireEvent.click(botao);
+
+    expect(botao).toHaveAttribute('aria-expanded', 'true');
+    expect(botao).toHaveTextContent(/recolher/i);
+    expect(screen.getByRole('heading', { level: 3, name: 'A escola da qualidade' })).toBeInTheDocument();
     expect(screen.getByText('Certificação de qualidade.')).toBeInTheDocument();
     expect(screen.getByText(/ia anotando os pontos/i)).toBeInTheDocument();
     expect(screen.getByText('As frentes na DevLand · 2022 – 2025')).toBeInTheDocument();
     expect(screen.getByText('BoutSex')).toBeInTheDocument();
-
-    const raioX = screen.getByRole('complementary', { name: 'Raio-X' });
-    expect(within(raioX).getByText('Mais de 40')).toBeInTheDocument();
-    expect(within(raioX).getByRole('link', { name: /falar com márcio/i })).toHaveAttribute('href', '#contato');
   });
 
   it('ProjetosDestaque deve agrupar os projetos por situação e só ter link onde há página', () => {

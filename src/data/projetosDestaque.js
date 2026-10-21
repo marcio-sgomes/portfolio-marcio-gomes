@@ -1,4 +1,4 @@
-// Projetos da seção "Os projetos", agrupados pela situação de cada um.
+// Projetos da seção "Projetos", agrupados pela situação de cada um.
 // Repositórios privados: mostrar apenas o que o projeto faz e o link da página publicada.
 // Logos em /logos/*.svg foram criadas para os apps que ainda não tinham uma.
 
@@ -192,7 +192,7 @@ export const gruposDeProjetos = [
 
 export const todosOsProjetos = () => gruposDeProjetos.flatMap((grupo) => grupo.projetos);
 
-// Caso em destaque no topo de "Os projetos": o app que nasceu da certificação de qualidade.
+// Caso em destaque no topo de "Projetos": o app que nasceu da certificação de qualidade.
 // O cartão dele sai da grade para não aparecer duas vezes (continua no letreiro do rodapé).
 export const casoEmDestaque = {
   nome: 'PrismaQ',

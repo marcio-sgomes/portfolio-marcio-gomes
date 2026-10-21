@@ -62,8 +62,8 @@ export function Home() {
   return (
     <main>
       <Manchete />
-      <Historia />
       <ProjetosDestaque />
+      <Historia />
       <Competencias />
       <Encaixe />
 
@@ -71,7 +71,7 @@ export function Home() {
         id="github"
         rotulo="No GitHub"
         titulo="Estudos e código"
-        descricao="Repositórios públicos, direto do GitHub: estudos de cursos e projetos de código aberto. Os apps autorais de código privado estão na seção Os projetos, acima."
+        descricao="Repositórios públicos, direto do GitHub: estudos de cursos e projetos de código aberto. Os apps autorais de código privado estão na seção Projetos, acima."
         destacada
       >
         {carregando && <p className={styles.status}>Conectando ao GitHub...</p>}
