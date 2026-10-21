@@ -6,7 +6,7 @@ import { ProjetosDestaque } from './ProjetosDestaque';
 import { Competencias } from './Competencias';
 import { Encaixe } from './Encaixe';
 import { Contato } from './Contato';
-import { gruposDeProjetos, todosOsProjetos } from '../../../data/projetosDestaque';
+import { gruposDeProjetos, todosOsProjetos, casoEmDestaque } from '../../../data/projetosDestaque';
 import { contatoPorId, atributosDoLink } from '../../../data/perfil';
 
 describe('Matéria da Home', () => {
@@ -51,13 +51,28 @@ describe('Matéria da Home', () => {
     gruposDeProjetos.forEach((grupo) => {
       expect(screen.getByRole('heading', { level: 3, name: grupo.titulo })).toBeInTheDocument();
     });
-    expect(screen.getAllByRole('article')).toHaveLength(todosOsProjetos().length);
+    // O caso em destaque é um artigo próprio; o cartão dele sai da grade
+    const nasGrades = todosOsProjetos().filter((projeto) => projeto.nome !== casoEmDestaque.nome);
+    expect(screen.getAllByRole('article')).toHaveLength(nasGrades.length + 1);
 
-    const comPagina = todosOsProjetos().filter((projeto) => projeto.url);
+    const comPagina = nasGrades.filter((projeto) => projeto.url);
     expect(screen.getAllByRole('link', { name: /abrir o app/i })).toHaveLength(comPagina.length);
-    expect(screen.getByRole('link', { name: /abrir o app prismaq/i })).toHaveAttribute('target', '_blank');
-    expect(screen.getByText(/ideia de 2019/i)).toBeInTheDocument();
+    expect(screen.queryByRole('link', { name: /abrir o app prismaq/i })).not.toBeInTheDocument();
     expect(screen.getByText('Tarefa feita, cofrinho cheio!')).toBeInTheDocument();
+  });
+
+  it('CasoDestaque deve contar a origem do PrismaQ, o antes e depois, quem usa e as regras', () => {
+    render(<ProjetosDestaque />);
+
+    const caso = screen.getByRole('article', { name: /prismaq/i });
+    expect(caso).toHaveAttribute('id', 'prismaq');
+    expect(within(caso).getByText(/em 2019, na procisa do brasil/i)).toBeInTheDocument();
+    expect(within(caso).getByText('Em testes')).toBeInTheDocument();
+    expect(within(caso).getAllByRole('row')).toHaveLength(casoEmDestaque.antesDepois.length + 1);
+    expect(within(caso).getByText('Em campo · celular')).toBeInTheDocument();
+    expect(within(caso).getAllByRole('listitem')).toHaveLength(casoEmDestaque.regras.length);
+    expect(within(caso).getByRole('link', { name: /abrir o prismaq/i })).toHaveAttribute('href', casoEmDestaque.url);
+    expect(within(caso).getByText(/dados fictícios/i)).toBeInTheDocument();
   });
 
   it('Competencias deve listar as três colunas, com Em aperfeiçoamento', () => {

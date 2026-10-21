@@ -1,0 +1,236 @@
+.caso {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  margin-bottom: 56px;
+  padding: clamp(24px, 4vw, 40px);
+  border: 1px solid var(--cor-testes-borda);
+  border-radius: 24px;
+  background:
+    radial-gradient(120% 80% at 100% 0%, rgba(143, 188, 255, 0.07), transparent 60%),
+    var(--cor-fundo-card);
+  scroll-margin-top: calc(var(--altura-header) + 16px);
+}
+
+.topo {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: start;
+  gap: 16px 20px;
+}
+
+.identidade {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.rotulo {
+  color: var(--cor-primaria);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.titulo {
+  font-family: var(--fonte-titulo);
+  font-size: clamp(1.8rem, 3.4vw, 2.5rem);
+  font-weight: 400;
+  line-height: 1.12;
+  color: var(--cor-texto-titulo);
+}
+
+.nome {
+  color: var(--cor-testes);
+}
+
+.slogan {
+  color: var(--cor-primaria);
+  font-family: var(--fonte-titulo);
+  font-style: italic;
+  font-size: 1.15rem;
+}
+
+.selo {
+  padding: 2px 10px;
+  border: 1px solid var(--cor-testes-borda);
+  border-radius: 999px;
+  color: var(--cor-testes);
+  font-size: 0.8rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.abertura {
+  max-width: 820px;
+  color: var(--cor-texto-claro);
+  font-size: 1.08rem;
+  line-height: 1.7;
+}
+
+.corpo {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+  gap: 32px 48px;
+}
+
+.subtitulo {
+  margin-bottom: 14px;
+  color: var(--cor-texto-titulo);
+  font-size: 1.05rem;
+  font-weight: 600;
+}
+
+.comparativo {
+  border: 1px solid var(--cor-borda);
+  border-radius: 16px;
+  overflow: hidden;
+  font-size: 0.95rem;
+}
+
+.linhaCabecalho,
+.linha {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.linhaCabecalho span,
+.linha span {
+  padding: 12px 16px;
+}
+
+.linhaCabecalho {
+  background: var(--cor-fundo-elevado);
+  color: var(--cor-texto-secundario);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.linha {
+  border-top: 1px solid var(--cor-borda);
+}
+
+.antes {
+  color: var(--cor-texto-secundario);
+}
+
+.depois {
+  border-left: 1px solid var(--cor-borda);
+  color: var(--cor-texto-principal);
+}
+
+.lateral {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.perfis {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  font-size: 0.95rem;
+}
+
+.perfis dt {
+  color: var(--cor-testes);
+  font-weight: 600;
+}
+
+.perfis dd {
+  color: var(--cor-texto-claro);
+}
+
+.regras {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding-left: 20px;
+  color: var(--cor-texto-claro);
+  font-size: 0.95rem;
+}
+
+.rodape {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px 24px;
+  padding-top: 24px;
+  border-top: 1px solid var(--cor-borda);
+}
+
+.tecnologias {
+  flex: 1 1 320px;
+  color: var(--cor-texto-secundario);
+  font-size: 0.9rem;
+}
+
+.botao {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 48px;
+  padding: 12px 22px;
+  border-radius: 999px;
+  background: var(--cor-primaria);
+  color: var(--cor-sobre-primaria);
+  font-weight: 600;
+  text-decoration: none;
+  transition: background-color 0.2s ease;
+}
+
+.botao:hover {
+  background: var(--cor-primaria-hover);
+}
+
+.nota {
+  flex-basis: 100%;
+  color: var(--cor-texto-suave);
+  font-size: 0.85rem;
+  font-style: italic;
+}
+
+@media (max-width: 860px) {
+  .corpo {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 560px) {
+  .topo {
+    grid-template-columns: auto minmax(0, 1fr);
+  }
+
+  .topo .selo {
+    grid-column: 2;
+    justify-self: start;
+  }
+
+  .linhaCabecalho {
+    display: none;
+  }
+
+  .linha {
+    grid-template-columns: 1fr;
+  }
+
+  .antes::before {
+    content: 'Antes: ';
+    font-weight: 600;
+  }
+
+  .depois {
+    padding-top: 0 !important;
+    border-left: none;
+  }
+
+  .depois::before {
+    content: 'Agora: ';
+    color: var(--cor-testes);
+    font-weight: 600;
+  }
+}

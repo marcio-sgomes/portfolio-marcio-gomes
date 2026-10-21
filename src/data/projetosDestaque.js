@@ -191,3 +191,37 @@ export const gruposDeProjetos = [
 ];
 
 export const todosOsProjetos = () => gruposDeProjetos.flatMap((grupo) => grupo.projetos);
+
+// Caso em destaque no topo de "Os projetos": o app que nasceu da certificação de qualidade.
+// O cartão dele sai da grade para não aparecer duas vezes (continua no letreiro do rodapé).
+export const casoEmDestaque = {
+  nome: 'PrismaQ',
+  rotulo: 'Em destaque · do campo para o app',
+  titulo: 'A vistoria que eu fazia no papel, agora no celular',
+  slogan: 'Qualidade de campo, sem papel.',
+  situacao: 'Em testes',
+  abertura:
+    'Em 2019, na Procisa do Brasil, eu fazia a certificação de qualidade das instalações de TV e internet da operação NET/Claro. Tudo era anotado em papel: OS, endereço, cliente, técnico e fotos de antes e depois, com o relatório montado depois. O PrismaQ é o aplicativo que eu queria ter tido naquela época.',
+  antesDepois: [
+    { antes: 'Formulário à mão e relatório montado depois', depois: 'Checklist digital e relatório em PDF gerado na hora' },
+    { antes: 'Fotos soltas no celular', depois: 'Foto obrigatória no item reprovado, com data, hora e local na imagem' },
+    { antes: 'Material declarado sem conferência', depois: 'Declarado × encontrado, com alerta de lançamento a maior' },
+    { antes: 'Instalação registrada em terreno baldio', depois: 'Local da vistoria comparado com o endereço do contrato (raio de 200 m)' },
+    { antes: 'Reprovação levava dias para virar ação', depois: 'Retorno criado na hora, com prazo de 7 dias e alerta' },
+  ],
+  perfis: [
+    { titulo: 'Em campo · celular', texto: 'Roteiro do dia com mapa, checklist em 8 blocos (269 pontos), fotos, materiais e assinatura do cliente. Funciona sem sinal.' },
+    { titulo: 'COP e supervisão · web', texto: 'Indicadores, mapa do dia, retornos por prazo, produção diária e alertas de fraude.' },
+    { titulo: 'Coordenação · web', texto: 'Envio de lotes por região, pontos críticos e qualidade por técnico e por região.' },
+  ],
+  regras: [
+    'Aprovação com nota mínima de 97%; item não inspecionado não entra na conta.',
+    'Item reprovado exige foto e, se não for corrigido no local, vira retorno com prazo de 7 dias.',
+    'Vistoria a mais de 200 m do endereço do contrato gera alerta.',
+    'Lotes distribuídos por região e pela jornada, com metas e cálculo de horas extras.',
+  ],
+  tecnologias: 'React 19 · TypeScript · PWA instalável e offline · Leaflet e OpenStreetMap · jsPDF · IndexedDB · Vitest',
+  nota: 'Demonstração com dados fictícios (empresa, pessoas, ruas e OS) na Zona Oeste do Rio de Janeiro.',
+  url: 'https://prismaq-flax.vercel.app',
+  logoUrl: 'https://prismaq-flax.vercel.app/icons/icone.svg',
+};

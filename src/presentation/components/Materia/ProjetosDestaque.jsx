@@ -1,4 +1,5 @@
-import { gruposDeProjetos } from '../../../data/projetosDestaque';
+import { gruposDeProjetos, casoEmDestaque } from '../../../data/projetosDestaque';
+import { CasoDestaque } from './CasoDestaque';
 import { ProjetoLogo } from '../ProjectCard/ProjetoLogo';
 import { Secao } from '../Secao/Secao';
 import styles from './Materia.module.css';
@@ -33,13 +34,17 @@ export function ProjetosDestaque() {
       titulo="Problemas reais, decisões claras"
       descricao="Para quem é cada projeto, o problema e o que foi definido. Separados por situação."
     >
+      <CasoDestaque />
+
       {gruposDeProjetos.map((grupo) => (
         <div key={grupo.id} className={styles.grupo}>
           <h3 className={`${styles.grupoTitulo} ${styles[grupo.tom]}`}>{grupo.titulo}</h3>
           <div className={styles.grade}>
-            {grupo.projetos.map((projeto) => (
-              <CartaoProjeto key={projeto.nome} projeto={projeto} grupo={grupo} />
-            ))}
+            {grupo.projetos
+              .filter((projeto) => projeto.nome !== casoEmDestaque.nome)
+              .map((projeto) => (
+                <CartaoProjeto key={projeto.nome} projeto={projeto} grupo={grupo} />
+              ))}
           </div>
         </div>
       ))}
