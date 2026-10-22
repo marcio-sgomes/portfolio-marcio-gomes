@@ -114,11 +114,12 @@ export const gruposDeProjetos = [
         logoUrl: 'https://linkdrive-beta.vercel.app/icon.svg',
       },
       {
-        nome: 'winXP',
+        nome: 'Máscara XP',
         slogan: 'O visual clássico no Windows de hoje.',
-        categoria: 'Windows · uso próprio',
+        categoria: 'Windows 7 a 11 · uso próprio',
         descricao:
-          'A aparência e os sons do Windows XP em qualquer Windows, sem mexer nas funções. Defini segurança primeiro: ponto de restauração automático e reverter tudo com um clique.',
+          'A aparência e os sons do Windows XP no Windows de hoje, sem mexer nas funções: botão e menu Iniciar, telas de boas-vindas e de desligar com som e proteção de tela. Defini segurança primeiro: ponto de restauração automático e volta ao Windows normal com um clique.',
+        nota: 'Programa para Windows · em uso no meu PC',
         logoUrl: '/logos/winxp.svg',
       },
     ],
@@ -129,6 +130,14 @@ export const gruposDeProjetos = [
     selo: 'Em desenvolvimento',
     tom: 'desenvolvimento',
     projetos: [
+      {
+        nome: 'Guardiões do Saber',
+        slogan: 'Ler, contar e conhecer o Brasil brincando.',
+        categoria: 'Educação · 1º ao 6º ano',
+        descricao:
+          'Aventura em blocos 3D para alfabetização, cálculo de cabeça e história do Brasil. Defini funcionamento 100% offline e sem nuvem, para proteger os dados das crianças e chegar a quem não tem internet, e um modo Mestre para o professor criar missões por QR Code ou código.',
+        nota: 'Android, iPhone e PC pelo mesmo link',
+      },
       {
         nome: 'Compra Inteligente',
         slogan: 'O mercado certo para a sua lista.',
@@ -160,7 +169,7 @@ export const gruposDeProjetos = [
         slogan: 'Cada conta no seu lugar.',
         categoria: 'Organização · uso próprio',
         descricao:
-          'Muitas contas de e-mail, cada uma ligada a um serviço. Defini um mapa de cada conta e onde ela está conectada, com alertas, na web e no PC.',
+          'Muitas contas de e-mail, cada uma ligada a um serviço. Defini um mapa de cada conta e onde ela está conectada, cofre de senhas criptografado e alertas de segurança, na web e no PC.',
         logoUrl: '/logos/gestor-de-contas.svg',
       },
       {
