@@ -27,6 +27,19 @@ describe('portfolioService', () => {
     projetos.forEach((projeto) => expect(projeto.privado).toBeFalsy());
   });
 
+  it('não deve repetir na lista do GitHub um repositório público que já está na seção Projetos', async () => {
+    githubService.obterProjetos.mockResolvedValue([
+      new Projeto({ id: 'otimizador', nome: 'gomestech otimizador', codigoUrl: 'https://github.com/marcio-sgomes/gomestech-otimizador' }),
+      new Projeto({ id: 'outro', nome: 'outro', codigoUrl: 'https://github.com/marcio-sgomes/outro' }),
+      new Projeto({ id: 'sem-link', nome: 'sem link' }),
+    ]);
+
+    const ids = (await obterProjetos()).map((projeto) => projeto.id);
+
+    expect(ids).toEqual(expect.arrayContaining(['outro', 'sem-link']));
+    expect(ids).not.toContain('otimizador');
+  });
+
   it('não deve repetir na lista do GitHub os apps de código privado', async () => {
     githubService.obterProjetos.mockResolvedValue([]);
 

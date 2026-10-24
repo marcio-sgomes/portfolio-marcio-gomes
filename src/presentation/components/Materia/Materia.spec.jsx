@@ -6,7 +6,7 @@ import { ProjetosDestaque } from './ProjetosDestaque';
 import { Competencias } from './Competencias';
 import { Encaixe } from './Encaixe';
 import { Contato } from './Contato';
-import { gruposDeProjetos, todosOsProjetos, casoEmDestaque } from '../../../data/projetosDestaque';
+import { gruposDeProjetos, todosOsProjetos, casoEmDestaque, situacoes, situacaoDoProjeto } from '../../../data/projetosDestaque';
 import { contatoPorId, atributosDoLink } from '../../../data/perfil';
 
 describe('Matéria da Home', () => {
@@ -79,9 +79,38 @@ describe('Matéria da Home', () => {
     expect(screen.getAllByRole('article')).toHaveLength(nasGrades.length + 1);
 
     const comPagina = nasGrades.filter((projeto) => projeto.url);
-    expect(screen.getAllByRole('link', { name: /abrir o app/i })).toHaveLength(comPagina.length);
+    const comRotuloProprio = comPagina.filter((projeto) => projeto.rotuloLink);
+    expect(screen.getAllByRole('link', { name: /abrir o app/i })).toHaveLength(comPagina.length - comRotuloProprio.length);
+    expect(screen.getByRole('link', { name: /baixar o apk gomestech otimizador/i })).toHaveAttribute(
+      'href',
+      'https://github.com/marcio-sgomes/gomestech-otimizador/releases/latest',
+    );
     expect(screen.queryByRole('link', { name: /abrir o app prismaq/i })).not.toBeInTheDocument();
     expect(screen.getByText('Tarefa feita, cofrinho cheio!')).toBeInTheDocument();
+  });
+
+  it('Jogos ficam num grupo próprio, cada um com o selo da sua situação', () => {
+    render(<ProjetosDestaque />);
+
+    const jogos = gruposDeProjetos.find((grupo) => grupo.id === 'jogos');
+    expect(jogos.projetos.map((projeto) => projeto.nome)).toEqual(['Guardiões do Saber', 'Soberania: Era das Forças', 'Neon Drop']);
+    jogos.projetos.forEach((projeto) => {
+      const cartao = screen.getByRole('heading', { level: 4, name: projeto.nome }).closest('article');
+      expect(within(cartao).getByText(situacoes[projeto.situacao].selo)).toBeInTheDocument();
+    });
+    // Nenhum jogo aparece repetido nos grupos por situação
+    const foraDeJogos = gruposDeProjetos.filter((grupo) => grupo.id !== 'jogos').flatMap((grupo) => grupo.projetos);
+    jogos.projetos.forEach((jogo) => expect(foraDeJogos.some((projeto) => projeto.nome === jogo.nome)).toBe(false));
+  });
+
+  it('todo projeto tem selo: o do grupo ou o da própria situação', () => {
+    gruposDeProjetos.forEach((grupo) => {
+      grupo.projetos.forEach((projeto) => {
+        expect(situacaoDoProjeto(projeto, grupo)?.selo, projeto.nome).toBeTruthy();
+      });
+    });
+    const nomes = todosOsProjetos().map((projeto) => projeto.nome);
+    expect(new Set(nomes).size).toBe(nomes.length);
   });
 
   it('CasoDestaque deve contar a origem do PrismaQ, o antes e depois, quem usa e as regras', () => {

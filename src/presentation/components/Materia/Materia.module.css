@@ -324,6 +324,7 @@
 .testes { --tom: var(--cor-testes); --tom-borda: var(--cor-testes-borda); }
 .desenvolvimento { --tom: var(--cor-desenvolvimento); --tom-borda: var(--cor-desenvolvimento-borda); }
 .planejamento { --tom: var(--cor-texto-claro); --tom-borda: var(--cor-borda-forte); }
+.jogos { --tom: var(--cor-jogos); --tom-borda: var(--cor-jogos-borda); }
 
 .grupo + .grupo {
   margin-top: 48px;

@@ -2,6 +2,14 @@
 // Repositórios privados: mostrar apenas o que o projeto faz e o link da página publicada.
 // Logos em /logos/*.svg foram criadas para os apps que ainda não tinham uma.
 
+// Situação de cada projeto: dá o selo e a cor do cartão
+export const situacoes = {
+  pronto: { selo: 'Pronto', tom: 'pronto' },
+  testes: { selo: 'Em testes', tom: 'testes' },
+  desenvolvimento: { selo: 'Em desenvolvimento', tom: 'desenvolvimento' },
+  planejamento: { selo: 'Planejamento', tom: 'planejamento' },
+};
+
 export const gruposDeProjetos = [
   {
     id: 'prontos',
@@ -122,6 +130,27 @@ export const gruposDeProjetos = [
         nota: 'Programa para Windows · em uso no meu PC',
         logoUrl: '/logos/winxp.svg',
       },
+      {
+        nome: 'Guia Solar',
+        slogan: 'Do telhado ao inversor, sem esquecer nada.',
+        categoria: 'Energia solar · instaladores iniciantes',
+        descricao:
+          'Quem termina o curso de energia solar esquece contas e regras na hora de instalar. Defini guia passo a passo on-grid e off-grid, cálculo de material, orçamento na hora, planta de ligação e cada conta explicada.',
+        nota: 'Funciona sem internet · Android, iPhone e PC',
+        url: 'https://guia-solar-seven.vercel.app',
+        logoUrl: 'https://guia-solar-seven.vercel.app/icone.svg',
+      },
+      {
+        nome: 'GomesTech Otimizador',
+        slogan: 'Celular mais leve, sem promessa falsa.',
+        categoria: 'Android · todas as marcas',
+        descricao:
+          'Apps de limpeza prometem o que o Android não deixa fazer. Defini só o que funciona de verdade: nota de saúde, caches, apps esquecidos, arquivos grandes e bateria, com o caminho certo em cada marca e sem anúncios.',
+        nota: 'Código aberto · Android 7 em diante',
+        url: 'https://github.com/marcio-sgomes/gomestech-otimizador/releases/latest',
+        rotuloLink: 'Baixar o APK',
+        repositorio: 'gomestech-otimizador',
+      },
     ],
   },
   {
@@ -130,14 +159,6 @@ export const gruposDeProjetos = [
     selo: 'Em desenvolvimento',
     tom: 'desenvolvimento',
     projetos: [
-      {
-        nome: 'Guardiões do Saber',
-        slogan: 'Ler, contar e conhecer o Brasil brincando.',
-        categoria: 'Educação · 1º ao 6º ano',
-        descricao:
-          'Aventura em blocos 3D para alfabetização, cálculo de cabeça e história do Brasil. Defini funcionamento 100% offline e sem nuvem, para proteger os dados das crianças e chegar a quem não tem internet, e um modo Mestre para o professor criar missões por QR Code ou código.',
-        nota: 'Android, iPhone e PC pelo mesmo link',
-      },
       {
         nome: 'Compra Inteligente',
         slogan: 'O mercado certo para a sua lista.',
@@ -180,6 +201,56 @@ export const gruposDeProjetos = [
         url: 'https://nebulosa-geek.vercel.app',
         logoUrl: '/logos/nebulosa-geek.svg',
       },
+      {
+        nome: 'MeuTom',
+        slogan: 'Cante. O MeuTom diz em que tom tocar.',
+        categoria: 'Música · quem canta e toca',
+        descricao:
+          'Achar o tom certo para a própria voz exige ouvido treinado. Defini afinador de voz, teste de extensão vocal e o tom ideal já traduzido para violão, cavaquinho, teclado e sopros.',
+        nota: 'Tudo no celular · o áudio não é gravado nem enviado',
+      },
+      {
+        nome: 'PedeAí',
+        slogan: 'Pedido feito, entrega a caminho.',
+        categoria: 'Entregas · backend',
+        descricao:
+          'Backend de um app de pedidos e entregas em C# e .NET 10, com as regras de negócio separadas do banco de dados (DDD), Entity Framework Core e testes automáticos.',
+        nota: 'Fase inicial · cadastro de clientes pronto',
+      },
+    ],
+  },
+  {
+    id: 'jogos',
+    titulo: 'Jogos',
+    tom: 'jogos',
+    projetos: [
+      {
+        nome: 'Guardiões do Saber',
+        situacao: 'desenvolvimento',
+        slogan: 'Ler, contar e conhecer o Brasil brincando.',
+        categoria: 'Educação · 1º ao 6º ano',
+        descricao:
+          'Aventura em blocos 3D para alfabetização, cálculo de cabeça e história do Brasil. Defini funcionamento 100% offline e sem nuvem, para proteger os dados das crianças e chegar a quem não tem internet, e um modo Mestre para o professor criar missões por QR Code ou código.',
+        nota: 'Android, iPhone e PC pelo mesmo link',
+      },
+      {
+        nome: 'Soberania: Era das Forças',
+        situacao: 'desenvolvimento',
+        slogan: 'Estratégia com as três Forças do Brasil.',
+        categoria: 'Estratégia em tempo real · PC, até 8 jogadores',
+        descricao:
+          'Exército, Marinha e Força Aérea evoluindo por eras, com a hierarquia militar de verdade, matérias-primas reais de cada país e campanha com o Brasil contra facções criminosas fictícias.',
+        nota: 'Arte criada em família · lançamento previsto para novembro de 2026',
+      },
+      {
+        nome: 'Neon Drop',
+        situacao: 'desenvolvimento',
+        slogan: 'Quem sabe mais, cai melhor.',
+        categoria: 'Quiz · navegador',
+        descricao:
+          'Cada resposta certa vira uma bola que cai num muro de pinos até um multiplicador. Conhecimento, sorte e uma decisão de risco no meio da partida definem o placar.',
+        nota: 'Projeto de estudo · React e animações em CSS',
+      },
     ],
   },
   {
@@ -195,11 +266,27 @@ export const gruposDeProjetos = [
         descricao:
           'Pedidos de manejo de fauna e controle de pragas. Planejei a plataforma a partir dos requisitos da cliente: custo zero no início, segurança e conversa direta com o cliente.',
       },
+      {
+        nome: 'Finance App',
+        slogan: 'Para onde vai o seu dinheiro.',
+        categoria: 'Finanças pessoais · uso geral',
+        descricao:
+          'Muita gente não sabe para onde vai o próprio dinheiro. Planejei um app em que registrar um gasto leva segundos, mesmo sem internet, com metas e gráficos fáceis de entender.',
+      },
     ],
   },
 ];
 
 export const todosOsProjetos = () => gruposDeProjetos.flatMap((grupo) => grupo.projetos);
+
+// Grupos por situação dão o selo a todos; grupos por tipo (Jogos) usam a situação de cada projeto
+export const situacaoDoProjeto = (projeto, grupo) => (projeto.situacao ? situacoes[projeto.situacao] : grupo);
+
+// Repositórios públicos que já aparecem aqui, com situação e descrição revisadas
+export const repositoriosEmDestaque = () =>
+  todosOsProjetos()
+    .map((projeto) => projeto.repositorio)
+    .filter(Boolean);
 
 // Caso em destaque no topo de "Projetos": o app que nasceu da certificação de qualidade.
 // O cartão dele sai da grade para não aparecer duas vezes (continua no letreiro do rodapé).

@@ -1,15 +1,17 @@
-import { gruposDeProjetos, casoEmDestaque } from '../../../data/projetosDestaque';
+import { gruposDeProjetos, casoEmDestaque, situacaoDoProjeto } from '../../../data/projetosDestaque';
 import { CasoDestaque } from './CasoDestaque';
 import { ProjetoLogo } from '../ProjectCard/ProjetoLogo';
 import { Secao } from '../Secao/Secao';
 import styles from './Materia.module.css';
 
 function CartaoProjeto({ projeto, grupo }) {
+  const situacao = situacaoDoProjeto(projeto, grupo);
+
   return (
-    <article className={`${styles.cartao} ${styles[grupo.tom]} revelar`}>
+    <article className={`${styles.cartao} ${styles[situacao.tom]} revelar`}>
       <div className={styles.cartaoTopo}>
         <ProjetoLogo nome={projeto.nome} logoUrl={projeto.logoUrl} />
-        <span className={styles.selo}>{grupo.selo}</span>
+        <span className={styles.selo}>{situacao.selo}</span>
       </div>
       <h4 className={styles.cartaoTitulo}>{projeto.nome}</h4>
       <p className={styles.slogan}>{projeto.slogan}</p>
@@ -18,7 +20,7 @@ function CartaoProjeto({ projeto, grupo }) {
       {projeto.nota && <p className={styles.nota}>{projeto.nota}</p>}
       {projeto.url && (
         <a href={projeto.url} target="_blank" rel="noopener noreferrer" className={styles.abrir}>
-          Abrir o app <span aria-hidden="true">→</span>
+          {projeto.rotuloLink ?? 'Abrir o app'} <span aria-hidden="true">→</span>
           <span className={styles.somenteLeitor}> {projeto.nome}</span>
         </a>
       )}
