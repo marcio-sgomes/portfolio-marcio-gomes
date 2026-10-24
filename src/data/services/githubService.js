@@ -8,9 +8,21 @@ const PREFIXO_ESTUDO = /^\[Estudo\]\s*/i;
 // Tópicos de controle viram selos no card, não tags de tecnologia
 const TOPICOS_DE_CONTROLE = [TOPICO_ESTUDO, TOPICO_EM_DESENVOLVIMENTO];
 
+// Se a API do GitHub não responder nesse tempo, a página mostra o aviso em vez de ficar carregando
+export const TEMPO_LIMITE_MS = 10000;
+
+// AbortSignal.timeout não existe em navegadores antigos (ex.: iPhone com iOS 15); ali o limite é feito à mão
+const sinalComTempoLimite = (ms) => {
+  if (typeof AbortSignal.timeout === 'function') return AbortSignal.timeout(ms);
+  const controle = new AbortController();
+  setTimeout(() => controle.abort(), ms);
+  return controle.signal;
+};
+
 const normalizarUrl = (url) => {
-  if (!url) return null;
-  return /^https?:\/\//.test(url) ? url : `https://${url}`;
+  const endereco = url?.trim();
+  if (!endereco) return null;
+  return /^https?:\/\//i.test(endereco) ? endereco : `https://${endereco}`;
 };
 
 const paginaDoRepositorio = (repo) =>
@@ -40,13 +52,19 @@ export const mapearRepositorio = (repo) => {
 export const obterProjetos = async () => {
   try {
     // per_page=100: o padrão da API é 30 e cortava parte dos repositórios
-    const response = await fetch(`https://api.github.com/users/${GITHUB_USER}/repos?per_page=100&sort=pushed`);
+    const response = await fetch(`https://api.github.com/users/${GITHUB_USER}/repos?per_page=100&sort=pushed`, {
+      signal: sinalComTempoLimite(TEMPO_LIMITE_MS),
+    });
 
     if (!response.ok) {
       throw new Error('Falha ao buscar repositórios na API do GitHub.');
     }
 
     const repos = await response.json();
+    // A API devolve um objeto (ex.: { message }) em vez da lista quando algo dá errado
+    if (!Array.isArray(repos)) {
+      throw new Error('Resposta inesperada da API do GitHub.');
+    }
     return repos.filter(deveExibir).map(mapearRepositorio);
   } catch (error) {
     console.error('Erro no githubService:', error);

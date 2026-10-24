@@ -1,8 +1,11 @@
+import { useTituloDaPagina } from '../../hooks/useTituloDaPagina';
 import styles from './About.module.css';
 
 export function About() {
+  useTituloDaPagina('Sobre este site');
+
   return (
-    <main className={styles.container}>
+    <main id="conteudo" tabIndex={-1} className={styles.container}>
       <h1 className={styles.titulo}>Sobre a GomesTech & Governança</h1>
       
       <section className={styles.card}>

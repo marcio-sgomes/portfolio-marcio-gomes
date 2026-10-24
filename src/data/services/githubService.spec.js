@@ -1,5 +1,5 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest';
-import { obterProjetos } from './githubService';
+import { obterProjetos, TEMPO_LIMITE_MS } from './githubService';
 
 const mockFetch = (repos) => {
   globalThis.fetch = vi.fn().mockResolvedValue({ ok: true, json: async () => repos });
@@ -28,7 +28,7 @@ describe('githubService', () => {
 
     const projetos = await obterProjetos();
 
-    expect(globalThis.fetch).toHaveBeenCalledWith(expect.stringContaining('per_page=100'));
+    expect(globalThis.fetch).toHaveBeenCalledWith(expect.stringContaining('per_page=100'), expect.objectContaining({ signal: expect.anything() }));
     expect(projetos).toHaveLength(1);
     expect(projetos[0]).toMatchObject({
       id: 1,
@@ -126,7 +126,59 @@ describe('githubService', () => {
     await expect(obterProjetos()).rejects.toThrow('Falha ao buscar repositórios na API do GitHub.');
   });
 
-  // 6. Error Handling: Falha de rede
+  // 6. A API às vezes devolve um objeto (ex.: limite de uso) com status 200
+  it('deve lançar erro claro quando a resposta não for uma lista', async () => {
+    mockFetch({ message: 'API rate limit exceeded' });
+
+    await expect(obterProjetos()).rejects.toThrow('Resposta inesperada da API do GitHub.');
+  });
+
+  // 7. Homepage com espaços, maiúsculas ou só espaços
+  it('deve limpar o endereço da página do repositório', async () => {
+    mockFetch([
+      { id: 9, name: 'com-espaco', html_url: 'x', homepage: '  meu-app.vercel.app  ', fork: false },
+      { id: 10, name: 'maiusculo', html_url: 'x', homepage: 'HTTPS://APP.VERCEL.APP', fork: false },
+      { id: 11, name: 'so-espaco', html_url: 'x', homepage: '   ', fork: false },
+    ]);
+
+    const [espaco, maiusculo, vazio] = await obterProjetos();
+
+    expect(espaco.paginaUrl).toBe('https://meu-app.vercel.app');
+    expect(maiusculo.paginaUrl).toBe('HTTPS://APP.VERCEL.APP');
+    expect(vazio.paginaUrl).toBeNull();
+  });
+
+  // 8. GitHub que não responde: a busca é cancelada no tempo limite
+  it('deve cancelar a busca quando o GitHub não responde', async () => {
+    vi.useFakeTimers();
+    globalThis.fetch = vi.fn(
+      (_url, { signal }) =>
+        new Promise((_resolve, reject) => {
+          signal.addEventListener('abort', () => reject(new DOMException('Tempo esgotado', 'TimeoutError')));
+        }),
+    );
+    const original = AbortSignal.timeout;
+    AbortSignal.timeout = undefined; // simula navegador antigo, sem AbortSignal.timeout
+
+    const busca = expect(obterProjetos()).rejects.toThrow('Tempo esgotado');
+    await vi.advanceTimersByTimeAsync(TEMPO_LIMITE_MS);
+    await busca;
+
+    AbortSignal.timeout = original;
+    vi.useRealTimers();
+  });
+
+  it('deve usar AbortSignal.timeout quando o navegador tem', async () => {
+    const espiao = vi.spyOn(AbortSignal, 'timeout');
+    mockFetch([]);
+
+    await obterProjetos();
+
+    expect(espiao).toHaveBeenCalledWith(TEMPO_LIMITE_MS);
+    espiao.mockRestore();
+  });
+
+  // 9. Error Handling: Falha de rede
   it('deve capturar e propagar erros quando houver falha de rede', async () => {
     globalThis.fetch = vi.fn().mockRejectedValue(new Error('Erro de conexão'));
 

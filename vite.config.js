@@ -10,6 +10,9 @@ export default defineConfig({
     setupFiles: './src/test/setupTests.js',
     coverage: {
       provider: 'v8',
+      // Mede todo o código do src, não só os arquivos que algum teste importa
+      include: ['src/**/*.{js,jsx}'],
+      exclude: ['src/**/*.spec.{js,jsx}', 'src/test/**'],
       // Regra de 97% de aceite exigida:
       thresholds: {
         lines: 97,

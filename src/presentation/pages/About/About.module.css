@@ -66,3 +66,6 @@
     padding: 60px 24px;
   }
 }
+.container:focus {
+  outline: none;
+}

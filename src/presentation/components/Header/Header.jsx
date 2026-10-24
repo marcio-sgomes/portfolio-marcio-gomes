@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { perfil } from '../../../data/perfil';
 import styled from './Header.module.css';
@@ -13,19 +13,28 @@ const secoes = [
 
 export function Header() {
   const [menuAberto, setMenuAberto] = useState(false);
+  const cabecalho = useRef(null);
 
   useEffect(() => {
     if (!menuAberto) return undefined;
     const fecharNoEsc = (evento) => evento.key === 'Escape' && setMenuAberto(false);
+    // Tocar em qualquer lugar fora do topo também fecha o menu do celular
+    const fecharAoTocarFora = (evento) => {
+      if (!cabecalho.current?.contains(evento.target)) setMenuAberto(false);
+    };
     window.addEventListener('keydown', fecharNoEsc);
-    return () => window.removeEventListener('keydown', fecharNoEsc);
+    document.addEventListener('pointerdown', fecharAoTocarFora);
+    return () => {
+      window.removeEventListener('keydown', fecharNoEsc);
+      document.removeEventListener('pointerdown', fecharAoTocarFora);
+    };
   }, [menuAberto]);
 
   // Cada link fecha o menu do celular ao levar à seção
   const fechar = () => setMenuAberto(false);
 
   return (
-    <header className={styled.header}>
+    <header ref={cabecalho} className={styled.header}>
       <div className={styled.progresso} aria-hidden="true" />
       <div className={styled.conteudo}>
         <Link to="/" className={styled.logo} onClick={fechar}>

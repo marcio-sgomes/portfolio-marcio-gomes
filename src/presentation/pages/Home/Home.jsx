@@ -9,6 +9,7 @@ import { ProjetosDestaque } from '../../components/Materia/ProjetosDestaque';
 import { Competencias } from '../../components/Materia/Competencias';
 import { Encaixe } from '../../components/Materia/Encaixe';
 import { Contato } from '../../components/Materia/Contato';
+import { useTituloDaPagina } from '../../hooks/useTituloDaPagina';
 import styles from './Home.module.css';
 
 const FILTROS = [
@@ -28,6 +29,7 @@ export function Home() {
   const [filtroAtivo, setFiltroAtivo] = useState('todos');
   const [mostrarTodos, setMostrarTodos] = useState(false);
   const github = contatoPorId('github');
+  useTituloDaPagina();
 
   useEffect(() => {
     const buscarProjetos = async () => {
@@ -60,7 +62,7 @@ export function Home() {
   };
 
   return (
-    <main>
+    <main id="conteudo" tabIndex={-1} className={styles.pagina}>
       <Manchete />
       <ProjetosDestaque />
       <Historia />

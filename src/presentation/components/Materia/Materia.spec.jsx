@@ -1,5 +1,5 @@
 import { render, screen, fireEvent, within } from '@testing-library/react';
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect, vi } from 'vitest';
 import { Manchete } from './Manchete';
 import { Historia } from './Historia';
 import { ProjetosDestaque } from './ProjetosDestaque';
@@ -53,6 +53,19 @@ describe('Matéria da Home', () => {
     expect(screen.getByText(/ia anotando os pontos/i)).toBeInTheDocument();
     expect(screen.getByText('As frentes na DevLand · 2022 – 2025')).toBeInTheDocument();
     expect(screen.getByText('BoutSex')).toBeInTheDocument();
+
+    // Recolher volta a tela para o começo da trajetória
+    Element.prototype.scrollIntoView = vi.fn();
+    fireEvent.click(botao);
+    expect(Element.prototype.scrollIntoView).toHaveBeenCalledWith(expect.objectContaining({ block: 'start' }));
+    expect(botao).toHaveAttribute('aria-expanded', 'false');
+    expect(screen.queryByRole('heading', { name: 'A escola da qualidade' })).not.toBeInTheDocument();
+    delete Element.prototype.scrollIntoView;
+
+    // Em navegador sem scrollIntoView, abrir e recolher não quebra
+    fireEvent.click(botao);
+    fireEvent.click(botao);
+    expect(botao).toHaveAttribute('aria-expanded', 'false');
   });
 
   it('ProjetosDestaque deve agrupar os projetos por situação e só ter link onde há página', () => {

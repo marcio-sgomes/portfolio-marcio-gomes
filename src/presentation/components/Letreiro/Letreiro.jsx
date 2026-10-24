@@ -16,7 +16,7 @@ function Faixa({ rotulo, itens, renderizar, sentido }) {
   );
 
   return (
-    <div className={styles.faixa} aria-label={rotulo}>
+    <div className={styles.faixa} role="group" aria-label={rotulo}>
       <div className={`${styles.trilho} ${styles[sentido]}`}>
         {grupo(false)}
         {grupo(true)}

@@ -14,12 +14,13 @@ describe('portfolioService', () => {
       new Projeto({ id: 'antigo', nome: 'antigo', atualizadoEm: '2020-01-01T00:00:00Z' }),
       new Projeto({ id: 'recente', nome: 'recente', atualizadoEm: '2030-01-01T00:00:00Z' }),
       new Projeto({ id: 'sem-data', nome: 'sem data' }),
+      new Projeto({ id: 'sem-data-2', nome: 'sem data 2' }),
     ]);
 
     const projetos = await obterProjetos();
     const ids = projetos.map((projeto) => projeto.id);
 
-    expect(projetos).toHaveLength(4);
+    expect(projetos).toHaveLength(5);
     expect(ids[0]).toBe('recente');
     expect(ids.at(-1)).toBe('estudo');
     expect(ids.indexOf('antigo')).toBeLessThan(ids.indexOf('sem-data'));

@@ -1,6 +1,7 @@
 import { useState, useRef } from 'react';
 import { perfil } from '../../../data/perfil';
 import { Secao } from '../Secao/Secao';
+import { comportamentoDaRolagem } from '../../utils/rolagem';
 import styles from './Materia.module.css';
 
 function Paragrafo({ conteudo }) {
@@ -55,7 +56,7 @@ export function Historia() {
   const [abertura, ...capitulos] = perfil.historia;
 
   const alternar = () => {
-    if (aberta) inicio.current?.scrollIntoView({ block: 'start' });
+    if (aberta) inicio.current?.scrollIntoView?.({ block: 'start', behavior: comportamentoDaRolagem() });
     setAberta(!aberta);
   };
 
@@ -66,7 +67,7 @@ export function Historia() {
 
         <div id="historia-completa" hidden={!aberta} className={styles.texto}>
           {capitulos.map((capitulo, indice) => (
-            <Capitulo key={capitulo.titulo ?? indice} capitulo={capitulo} />
+            <Capitulo key={`${indice}-${capitulo.titulo}`} capitulo={capitulo} />
           ))}
         </div>
 

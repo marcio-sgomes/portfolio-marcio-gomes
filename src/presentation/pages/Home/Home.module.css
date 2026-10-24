@@ -90,3 +90,8 @@
 .verTodos:hover {
   border-color: var(--cor-primaria);
 }
+
+/* O foco do atalho "Pular para o conteúdo" não desenha contorno na página inteira */
+.pagina:focus {
+  outline: none;
+}
